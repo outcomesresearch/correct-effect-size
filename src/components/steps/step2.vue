@@ -2,14 +2,47 @@
   <v-stepper-content step="2">
     <v-card class="past-scores">
       <v-container class="container-override">
-        <v-card-title class="text-h5">
-          Step 2
+        <v-card-title>
+          <div>
+            <h1 class="text-h5">
+              Focus of Analysis
+            </h1>
+            <h2 class="text-h6 font-italic grey--text">
+              Focus of analysis subtitle
+            </h2>
+          </div>
         </v-card-title>
-        <v-card-text style="padding: 0px;" v-if="historicalData.length">
-          <Chart :historicalData="historicalData" />
-        </v-card-text>
-        <v-card-text v-else>
-          <div>no data available</div>
+        <v-card-text>
+          <div class="card-container">
+            <Card
+              identifier="ccm"
+              title="Correlation with continuous measure"
+              description="Correlation with continuous measure description"
+              :currentlySelected="selected"
+              @selected="selected = 'ccm'"
+            />
+            <Card
+              identifier="c2g"
+              title="Comparison of 2 groups"
+              description="Comparison of 2 groups description"
+              :currentlySelected="selected"
+              @selected="selected = 'c2g'"
+            />
+            <Card
+              identifier="c3g"
+              title="Comparison of 3 or more groups"
+              description="Comparison of 3 or more groups description"
+              :currentlySelected="selected"
+              @selected="selected = 'c3g'"
+            />
+            <Card
+              identifier="regression"
+              title="Regression model"
+              description="Regression model card description"
+              :currentlySelected="selected"
+              @selected="selected = 'regression'"
+            />
+          </div>
         </v-card-text>
         <v-card-actions class="show-on-desktop">
           <div class="button-container">
@@ -30,17 +63,15 @@
 </template>
 
 <script>
+import Card from '../Card.vue';
+
 export default {
-  components: {},
+  components: { Card },
   computed: {},
-  methods: {
-    addData() {
-      console.log('Add Data');
-    },
-  },
+  methods: {},
   data() {
     return {
-      historicalData: [],
+      selected: '',
     };
   },
 };
