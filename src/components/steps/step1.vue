@@ -2,14 +2,51 @@
   <v-stepper-content step="1">
     <v-card class="past-scores">
       <v-container class="container-override">
-        <v-card-title class="text-h5">
-          Step 2
+        <v-card-title>
+          <div>
+            <h1 class="text-h5">
+              Outcome Meaure
+            </h1>
+            <h2 class="text-h6 font-italic grey--text">
+              Variable being analyzed / compared
+            </h2>
+          </div>
         </v-card-title>
-        <v-card-text style="padding: 0px;" v-if="historicalData.length">
-          <Chart :historicalData="historicalData" />
-        </v-card-text>
-        <v-card-text v-else>
-          <div>no data available</div>
+        <v-card-text>
+          <div class="card-container">
+            <Card
+              identifier="cont"
+              title="Continuous"
+              description="Continuous outcomes are often measured at both baseline and
+                  followup time points. Results of continuous data can be
+                  reported as means, mean differences, or differences in change
+                  score from baseline, and measures of precision are reported as
+                  standard deviation (SD), standard error (SE), or confidence
+                  intervals."
+              :currentlySelected="selected"
+              @selected="selected = 'cont'"
+            />
+            <Card
+              identifier="category"
+              title="Categorical"
+              description="These are dependent variables that have mutually exclusive
+                  outcomes. That is, the choice of one outcome means non-use of
+                  the other outcome. An example is a household that may choose
+                  to use charcoal, LPG, or electricity for cooking but not the
+                  use of two of these categories at a time."
+              :currentlySelected="selected"
+              @selected="selected = 'category'"
+            />
+            <Card
+              identifier="tte"
+              title="Time To Event"
+              description="Time-to-event outcomes take account of whether an event takes
+                  place and also the time at which the event occurs, such that
+                  both the event and the timing of the event are important."
+              :currentlySelected="selected"
+              @selected="selected = 'tte'"
+            />
+          </div>
         </v-card-text>
         <v-card-actions class="show-on-desktop">
           <div class="button-container">
@@ -30,17 +67,15 @@
 </template>
 
 <script>
+import Card from '../Card.vue';
+
 export default {
-  components: {},
+  components: { Card },
   computed: {},
-  methods: {
-    addData() {
-      console.log('Add Data');
-    },
-  },
+  methods: {},
   data() {
     return {
-      historicalData: [],
+      selected: '',
     };
   },
 };

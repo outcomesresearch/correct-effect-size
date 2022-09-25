@@ -1,5 +1,11 @@
 @import './breakpoints.scss';
 
+#app .card-container {
+  display: flex;
+  flex-flow: wrap;
+  grid-gap: 20px;
+}
+
 #app .v-stepper__content {
   padding: 0px;
 }
