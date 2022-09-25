@@ -1,5 +1,5 @@
 <template>
-  <v-stepper-content step="1">
+  <v-stepper-content step="4">
     <v-card class="past-scores">
       <v-container class="container-override">
         <v-card-title class="text-h5">

@@ -2,21 +2,24 @@
   <v-stepper v-model="currentStep">
     <v-stepper-header>
       <v-stepper-step :complete="currentStep > 1" step="1">
-        Name of step 1
+        Outcome Measure
       </v-stepper-step>
       <v-stepper-step :complete="currentStep > 2" step="2">
-        Name of step 2
+        Focus of Analysis
       </v-stepper-step>
-      <v-stepper-step step="3">
-        Name of step 3
+      <v-stepper-step :complete="currentStep > 3" step="3">
+        Further choices
       </v-stepper-step>
-      <v-stepper-step step="4">
-        Name of step 4
+      <v-stepper-step :complete="currentStep > 4" step="4">
+        Results
       </v-stepper-step>
     </v-stepper-header>
 
+    <Step0 />
     <Step1 />
     <Step2 />
+    <Step3 />
+    <Step4 />
   </v-stepper>
 </template>
 
@@ -36,7 +39,7 @@ export default {
   },
   data() {
     return {
-      currentStep: 1,
+      currentStep: 0,
     };
   },
 };

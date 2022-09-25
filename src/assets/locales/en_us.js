@@ -7,4 +7,5 @@ export default {
     'Copyright 2020 Washington University School of Medicine, St. Louis, Missouri',
   [keys.NEXT]: 'Next',
   [keys.BACK]: 'Back',
+  [keys.BEGIN]: 'Begin',
 };
