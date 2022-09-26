@@ -13,34 +13,15 @@
           </div>
         </v-card-title>
         <v-card-text>
-          <div class="card-container">
+          <div class="card-container" v-if="getOutcomeMeasure">
             <Card
-              identifier="ccm"
-              title="Correlation with continuous measure"
-              description="Correlation with continuous measure description"
+              v-for="focusOfAnalysis of validFociOfAnalysis"
+              :key="focusOfAnalysis.name"
+              :identifier="focusOfAnalysis.name"
+              :title="focusOfAnalysis.displayName"
+              :description="focusOfAnalysis.description"
               :currentlySelected="selected"
-              @selected="selected = 'ccm'"
-            />
-            <Card
-              identifier="c2g"
-              title="Comparison of 2 groups"
-              description="Comparison of 2 groups description"
-              :currentlySelected="selected"
-              @selected="selected = 'c2g'"
-            />
-            <Card
-              identifier="c3g"
-              title="Comparison of 3 or more groups"
-              description="Comparison of 3 or more groups description"
-              :currentlySelected="selected"
-              @selected="selected = 'c3g'"
-            />
-            <Card
-              identifier="regression"
-              title="Regression model"
-              description="Regression model card description"
-              :currentlySelected="selected"
-              @selected="selected = 'regression'"
+              @selected="setFocusSelection(focusOfAnalysis.name)"
             />
           </div>
         </v-card-text>
@@ -64,11 +45,25 @@
 
 <script>
 import Card from '../Card.vue';
+import outcomes from '../../assets/aggregatedDecisionTree';
+import { mapGetters } from 'vuex';
 
 export default {
   components: { Card },
-  computed: {},
-  methods: {},
+  computed: {
+    ...mapGetters(['getOutcomeMeasure']),
+    validFociOfAnalysis() {
+      return outcomes.find((outcome) => outcome.name === this.getOutcomeMeasure)
+        .focusOfAnalysis;
+    },
+  },
+  methods: {
+    setFocusSelection(name) {
+      this.$store.dispatch('SET_FOCUSOFANALYSIS', name);
+      this.$store.dispatch('SET_FURTHER_CHOICE', undefined);
+      this.selected = name;
+    },
+  },
   data() {
     return {
       selected: '',

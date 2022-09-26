@@ -6,7 +6,7 @@ Vue.use(Vuex);
 const state = {
   outcomeMeasure: undefined,
   focusOfAnalysis: undefined,
-  furtherChoices: undefined,
+  furtherChoice: undefined,
 };
 
 const getters = {
@@ -16,8 +16,8 @@ const getters = {
   getFocusOfAnalysis(state) {
     return state.focusOfAnalysis;
   },
-  getFurtherChoices(state) {
-    return state.furtherChoices;
+  getFurtherChoice(state) {
+    return state.furtherChoice;
   },
 };
 
@@ -28,8 +28,8 @@ const actions = {
   SET_FOCUSOFANALYSIS({ commit }, value) {
     commit('SET_FOCUSOFANALYSIS_MUTATION', value);
   },
-  SET_FURTHERCHOICES({ commit }, value) {
-    commit('SET_FURTHERCHOICES_MUTATION', value);
+  SET_FURTHERCHOICE({ commit }, value) {
+    commit('SET_FURTHERCHOICE_MUTATION', value);
   },
 };
 
@@ -40,8 +40,8 @@ const mutations = {
   SET_FOCUSOFANALYSIS_MUTATION(state, value) {
     state.focusOfAnalysis = value;
   },
-  SET_FURTHERCHOICES_MUTATION(state, value) {
-    state.furtherChoices = value;
+  SET_FURTHERCHOICE_MUTATION(state, value) {
+    state.furtherChoice = value;
   },
 };
 

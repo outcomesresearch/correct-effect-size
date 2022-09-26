@@ -13,34 +13,15 @@
           </div>
         </v-card-title>
         <v-card-text>
-          <div class="card-container">
+          <div class="card-container" v-if="getFocusOfAnalysis">
             <Card
-              identifier="1"
-              title="Reporting pairwise differences"
-              description="description for reporting pairwise differences"
+              v-for="furtherChoice of validFurtherChoices"
+              :key="furtherChoice.name"
+              :identifier="furtherChoice.name"
+              :title="furtherChoice.displayName"
+              :description="furtherChoice.description"
               :currentlySelected="selected"
-              @selected="selected = '1'"
-            />
-            <Card
-              identifier="2"
-              title="Reporting overall effect"
-              description="description for reporting on overall effect"
-              :currentlySelected="selected"
-              @selected="selected = '2'"
-            />
-            <Card
-              identifier="3"
-              title="Adjusted association with predictor"
-              description="descrpition for adjusted association with predictor"
-              :currentlySelected="selected"
-              @selected="selected = '3'"
-            />
-            <Card
-              identifier="4"
-              title="Overall model"
-              description="over all model card description"
-              :currentlySelected="selected"
-              @selected="selected = '4'"
+              @selected="setFurtherChoiceSelection(furtherChoice.name)"
             />
           </div>
         </v-card-text>
@@ -64,11 +45,27 @@
 
 <script>
 import Card from '../Card.vue';
+import { mapGetters } from 'vuex';
+import outcomes from '../../assets/aggregatedDecisionTree';
 
 export default {
   components: { Card },
-  computed: {},
-  methods: {},
+  computed: {
+    ...mapGetters(['getOutcomeMeasure', 'getFocusOfAnalysis']),
+    validFurtherChoices() {
+      return outcomes
+        .find((outcome) => outcome.name === this.getOutcomeMeasure)
+        .focusOfAnalysis.find((focus) => focus.name === this.getFocusOfAnalysis)
+        .furtherChoices;
+    },
+  },
+  methods: {
+    setFurtherChoiceSelection(name) {
+      console.log({ name });
+      this.$store.dispatch('SET_FURTHERCHOICE', name);
+      this.selected = name;
+    },
+  },
   data() {
     return {
       selected: '',

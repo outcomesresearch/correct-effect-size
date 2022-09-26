@@ -15,36 +15,13 @@
         <v-card-text>
           <div class="card-container">
             <Card
-              identifier="cont"
-              title="Continuous"
-              description="Continuous outcomes are often measured at both baseline and
-                  followup time points. Results of continuous data can be
-                  reported as means, mean differences, or differences in change
-                  score from baseline, and measures of precision are reported as
-                  standard deviation (SD), standard error (SE), or confidence
-                  intervals."
+              v-for="outcomeType of outcomes"
+              :key="outcomeType.name"
+              :identifier="outcomeType.name"
+              :title="outcomeType.displayName"
+              :description="outcomeType.description"
               :currentlySelected="selected"
-              @selected="selected = 'cont'"
-            />
-            <Card
-              identifier="category"
-              title="Categorical"
-              description="These are dependent variables that have mutually exclusive
-                  outcomes. That is, the choice of one outcome means non-use of
-                  the other outcome. An example is a household that may choose
-                  to use charcoal, LPG, or electricity for cooking but not the
-                  use of two of these categories at a time."
-              :currentlySelected="selected"
-              @selected="selected = 'category'"
-            />
-            <Card
-              identifier="tte"
-              title="Time To Event"
-              description="Time-to-event outcomes take account of whether an event takes
-                  place and also the time at which the event occurs, such that
-                  both the event and the timing of the event are important."
-              :currentlySelected="selected"
-              @selected="selected = 'tte'"
+              @selected="setOutcomeSelection(outcomeType.name)"
             />
           </div>
         </v-card-text>
@@ -68,14 +45,22 @@
 
 <script>
 import Card from '../Card.vue';
+import outcomes from '../../assets/aggregatedDecisionTree';
 
 export default {
   components: { Card },
   computed: {},
-  methods: {},
+  methods: {
+    setOutcomeSelection(name) {
+      this.$store.dispatch('SET_OUTCOMEMEAURE', name);
+      this.$store.dispatch('SET_FOCUSOFANALYSIS', undefined);
+      this.selected = name;
+    },
+  },
   data() {
     return {
       selected: '',
+      outcomes,
     };
   },
 };

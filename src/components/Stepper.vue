@@ -26,16 +26,55 @@
 <script>
 import * as Steps from './steps';
 import { bus, GO_BACK, ADVANCE } from '../services/bus';
+import { mapGetters } from 'vuex';
+import outcomes from '../assets/aggregatedDecisionTree';
 
 export default {
   components: { ...Steps },
+  computed: {
+    ...mapGetters([
+      'getOutcomeMeasure',
+      'getFocusOfAnalysis',
+      'getFurtherChoice',
+    ]),
+  },
   mounted() {
     bus.$on(GO_BACK, () => {
       this.currentStep--;
+      // Go back twice if we're on step 3 and this focusOfAnalysis offers no further choices
+      if (this.currentStep === 3 && this.hasNoFurtherChoices()) {
+        this.currentStep--;
+      }
     });
     bus.$on(ADVANCE, () => {
       this.currentStep++;
+      // Advance again if we're on step 3 and this focusOfAnalysis offers no further choices
+      if (this.currentStep === 3 && this.hasNoFurtherChoices()) {
+        this.currentStep++;
+      }
     });
+  },
+  methods: {
+    hasNoFurtherChoices() {
+      // Whenever navigating forward thru step 3, or backwards thru step 3,
+      // we need to check if there are actually choices here.
+      // Some focuses of analyses allow user to skip directly to the recommended effect size measurements
+
+      const { focusOfAnalysis } = outcomes.find(
+        ({ name }) => name === this.getOutcomeMeasure,
+      );
+
+      const { furtherChoices } = focusOfAnalysis.find(
+        ({ name }) => name === this.getFocusOfAnalysis,
+      );
+
+      if (furtherChoices.length === 1) {
+        // We've come across a focus of analysis which has no further choices and
+        // we can proceed directly to the effect size measurements the investigator should use
+        this.$store.dispatch('SET_FURTHERCHOICE', furtherChoices[0].name);
+        return true;
+      }
+    },
   },
   data() {
     return {
