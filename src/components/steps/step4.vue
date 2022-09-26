@@ -66,6 +66,13 @@ export default {
       'getFurtherChoice',
     ]),
     validEffectSizeMeasures() {
+      if (
+        !this.getOutcomeMeasure ||
+        !this.getFocusOfAnalysis ||
+        !this.getFurtherChoice
+      ) {
+        return [];
+      }
       return outcomes
         .find((outcome) => outcome.name === this.getOutcomeMeasure)
         .focusOfAnalysis.find((focus) => focus.name === this.getFocusOfAnalysis)
@@ -75,9 +82,6 @@ export default {
     },
   },
   methods: {
-    addData() {
-      console.log('Add Data');
-    },
     hasSpecialHeaders() {
       this.validEffectSizeMeasures[0].header !== 'general';
     },

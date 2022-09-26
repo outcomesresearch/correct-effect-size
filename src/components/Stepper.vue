@@ -25,7 +25,7 @@
 
 <script>
 import * as Steps from './steps';
-import { bus, GO_BACK, ADVANCE } from '../services/bus';
+import { bus, GO_BACK, ADVANCE, CLEAR_SELECTION } from '../services/bus';
 import { mapGetters } from 'vuex';
 import outcomes from '../assets/aggregatedDecisionTree';
 
@@ -43,6 +43,8 @@ export default {
       this.currentStep--;
       // Go back twice if we're on step 3 and this focusOfAnalysis offers no further choices
       if (this.currentStep === 3 && this.hasNoFurtherChoices()) {
+        bus.$emit(CLEAR_SELECTION, 3);
+        this.$store.dispatch('SET_FURTHERCHOICE', undefined);
         this.currentStep--;
       }
     });
@@ -50,6 +52,7 @@ export default {
       this.currentStep++;
       // Advance again if we're on step 3 and this focusOfAnalysis offers no further choices
       if (this.currentStep === 3 && this.hasNoFurtherChoices()) {
+        this.$store.dispatch('SET_FURTHERCHOICE', 'skip');
         this.currentStep++;
       }
     });
@@ -68,17 +71,14 @@ export default {
         ({ name }) => name === this.getFocusOfAnalysis,
       );
 
-      if (furtherChoices.length === 1) {
-        // We've come across a focus of analysis which has no further choices and
-        // we can proceed directly to the effect size measurements the investigator should use
-        this.$store.dispatch('SET_FURTHERCHOICE', furtherChoices[0].name);
-        return true;
-      }
+      return furtherChoices.length === 1;
+      // We've come across a focus of analysis which has no further choices and
+      // we can proceed directly to the effect size measurements the investigator should use
     },
   },
   data() {
     return {
-      currentStep: 1,
+      currentStep: 0,
     };
   },
 };

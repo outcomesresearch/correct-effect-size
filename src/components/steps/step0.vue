@@ -35,12 +35,12 @@
         <v-card-actions class="show-on-desktop">
           <div class="button-container">
             <v-spacer></v-spacer>
-            <v-btn text @click="advanceStep">{{ t(k.BEGIN) }}</v-btn>
+            <v-btn text @click="prepareToAdvance">{{ t(k.BEGIN) }}</v-btn>
           </div>
         </v-card-actions>
         <v-card-actions class="show-on-mobile">
           <div class="button-container">
-            <v-btn text @click="advanceStep">{{ t(k.BEGIN) }}</v-btn>
+            <v-btn text @click="prepareToAdvance">{{ t(k.BEGIN) }}</v-btn>
           </div>
         </v-card-actions>
       </v-container>
@@ -49,14 +49,17 @@
 </template>
 
 <script>
-import { bus, MODAL_CLOSED } from '../../services/bus';
+import { bus, CLEAR_SELECTION } from '../../services/bus';
 
 export default {
   components: {},
   computed: {},
   methods: {
-    addData() {
-      console.log('Add Data');
+    prepareToAdvance() {
+      bus.$emit(CLEAR_SELECTION, 1);
+      bus.$emit(CLEAR_SELECTION, 2);
+      bus.$emit(CLEAR_SELECTION, 3);
+      this.advanceStep();
     },
   },
   data() {

@@ -1,5 +1,5 @@
 import locale_keys from '../assets/locales/keys';
-import { bus, GO_BACK, ADVANCE } from '../services/bus';
+import { bus, GO_BACK, ADVANCE, CLEAR_SELECTION } from '../services/bus';
 
 export default [
   {
@@ -12,6 +12,9 @@ export default [
       },
       advanceStep() {
         bus.$emit(ADVANCE);
+      },
+      clearSelection(step) {
+        bus.$emit(CLEAR_SELECTION, step);
       },
       t(key) {
         return this.$vuetify.lang.t(`$vuetify.${key}`);

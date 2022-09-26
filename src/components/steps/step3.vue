@@ -27,15 +27,19 @@
         </v-card-text>
         <v-card-actions class="show-on-desktop">
           <div class="button-container">
-            <v-btn text @click="goBackStep">{{ t(k.BACK) }}</v-btn>
+            <v-btn text @click="prepareToBackUp">{{ t(k.BACK) }}</v-btn>
             <v-spacer></v-spacer>
-            <v-btn text @click="advanceStep">{{ t(k.NEXT) }}</v-btn>
+            <v-btn text @click="advanceStep" :disabled="selected === ''">{{
+              t(k.NEXT)
+            }}</v-btn>
           </div>
         </v-card-actions>
         <v-card-actions class="show-on-mobile">
           <div class="button-container">
-            <v-btn text @click="goBackStep">{{ t(k.BACK) }}</v-btn>
-            <v-btn text @click="advanceStep">{{ t(k.NEXT) }}</v-btn>
+            <v-btn text @click="prepareToBackUp">{{ t(k.BACK) }}</v-btn>
+            <v-btn text @click="advanceStep" :disabled="selected === ''">{{
+              t(k.NEXT)
+            }}</v-btn>
           </div>
         </v-card-actions>
       </v-container>
@@ -47,12 +51,23 @@
 import Card from '../Card.vue';
 import { mapGetters } from 'vuex';
 import outcomes from '../../assets/aggregatedDecisionTree';
+import { bus, CLEAR_SELECTION } from '../../services/bus';
 
 export default {
   components: { Card },
+  mounted() {
+    bus.$on(CLEAR_SELECTION, (step) => {
+      if (step === 3) {
+        console.log('clearing further Choice, used to be ', this.selected);
+        this.$store.dispatch('SET_FURTHERCHOICE', undefined);
+        this.selected = '';
+      }
+    });
+  },
   computed: {
     ...mapGetters(['getOutcomeMeasure', 'getFocusOfAnalysis']),
     validFurtherChoices() {
+      if (!this.getOutcomeMeasure || !this.getFocusOfAnalysis) return [];
       return outcomes
         .find((outcome) => outcome.name === this.getOutcomeMeasure)
         .focusOfAnalysis.find((focus) => focus.name === this.getFocusOfAnalysis)
@@ -61,9 +76,12 @@ export default {
   },
   methods: {
     setFurtherChoiceSelection(name) {
-      console.log({ name });
       this.$store.dispatch('SET_FURTHERCHOICE', name);
       this.selected = name;
+    },
+    prepareToBackUp() {
+      bus.$emit(CLEAR_SELECTION, 3);
+      this.goBackStep();
     },
   },
   data() {
