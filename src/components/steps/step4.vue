@@ -31,6 +31,7 @@
                 :title="result.displayName"
                 :description="result.description"
                 :currentlySelected="selected"
+                :unselectable="true"
               />
             </div>
           </v-card-text>

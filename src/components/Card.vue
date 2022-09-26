@@ -1,6 +1,7 @@
 <template>
   <v-card
     class="mx-auto"
+    :class="unselectable ? 'unselectable' : ''"
     width="350"
     @click="$emit('selected', identifier)"
     :color="getBackgroundColor"
@@ -19,7 +20,13 @@
 
 <script>
 export default {
-  props: ['identifier', 'currentlySelected', 'title', 'description'],
+  props: [
+    'identifier',
+    'currentlySelected',
+    'title',
+    'description',
+    'unselectable',
+  ],
   components: {},
   computed: {
     getBackgroundColor() {
@@ -38,4 +45,9 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.unselectable {
+  pointer-events: none;
+  cursor: none;
+}
+</style>
