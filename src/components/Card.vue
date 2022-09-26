@@ -46,6 +46,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../assets/scss/breakpoints.scss';
+
+@media only screen and (max-width: $SMALL) {
+  #app .text-h6 {
+    font-size: 1.1rem !important;
+  }
+}
 .unselectable {
   pointer-events: none;
   cursor: none;

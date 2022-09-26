@@ -7,7 +7,7 @@
             <h1 class="text-h5">
               Appropriate Effect Size Measurements
             </h1>
-            <h2 class="text-h6 font-italic grey--text">
+            <h2 class="text-h6 grey--text">
               Based on the inputs you've given, these are the appropriate effect
               size measurements to consider for your investigation.
             </h2>

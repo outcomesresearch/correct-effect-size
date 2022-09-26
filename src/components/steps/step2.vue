@@ -7,7 +7,7 @@
             <h1 class="text-h5">
               Focus of Analysis
             </h1>
-            <h2 class="text-h6 font-italic grey--text">
+            <h2 class="text-h6 grey--text">
               Focus of analysis subtitle
             </h2>
           </div>

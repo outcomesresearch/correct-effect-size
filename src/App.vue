@@ -43,6 +43,24 @@ export default {
   padding: 10px;
 }
 
+#app .v-card__title {
+  word-break: normal;
+}
+
+#app .text-h6 {
+  font-weight: 400;
+}
+
+#app .theme--light.v-card > .v-card__subtitle,
+#app .theme--light.v-card > .v-card__text {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+#app .theme--dark.v-card > .v-card__subtitle,
+#app .theme--dark.v-card > .v-card__text {
+  color: hsla(0, 0%, 100%, 0.9);
+}
+
 @media only screen and (max-width: $SMALL) {
   #app .v-stepper,
   #app .v-stepper__wrapper,

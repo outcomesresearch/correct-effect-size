@@ -7,7 +7,7 @@
             <h1 class="text-h5">
               Further choices
             </h1>
-            <h2 class="text-h6 font-italic grey--text">
+            <h2 class="text-h6 grey--text">
               Description about what the investigator is choosing here
             </h2>
           </div>

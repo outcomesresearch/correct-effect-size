@@ -7,7 +7,7 @@
             <h1 class="text-h5">
               Outcome Meaure
             </h1>
-            <h2 class="text-h6 font-italic grey--text">
+            <h2 class="text-h6 grey--text">
               Variable being analyzed / compared
             </h2>
           </div>

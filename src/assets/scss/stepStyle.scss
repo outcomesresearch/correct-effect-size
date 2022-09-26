@@ -43,5 +43,10 @@
   }
   .container-override {
     height: 100%;
+    padding: 0px;
+  }
+
+  #app .text-h5 {
+    font-size: 1.25rem !important;
   }
 }
