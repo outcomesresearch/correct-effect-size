@@ -8,7 +8,7 @@
               Outcome Meaure
             </h1>
             <h2 class="text-h6 grey--text">
-              Variable being analyzed / compared
+              Select the type of outcome variable being analyzed or compared
             </h2>
           </div>
         </v-card-title>

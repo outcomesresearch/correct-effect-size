@@ -8,7 +8,8 @@
               Focus of Analysis
             </h1>
             <h2 class="text-h6 grey--text">
-              Focus of analysis subtitle
+              Select the focus of analysis. Add more description, like what is a
+              focus of analysis?
             </h2>
           </div>
         </v-card-title>

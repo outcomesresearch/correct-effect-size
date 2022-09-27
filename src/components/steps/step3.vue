@@ -8,7 +8,8 @@
               Further choices
             </h1>
             <h2 class="text-h6 grey--text">
-              Description about what the investigator is choosing here
+              Select further options. Description about what the investigator is
+              choosing here
             </h2>
           </div>
         </v-card-title>
@@ -58,7 +59,6 @@ export default {
   mounted() {
     bus.$on(CLEAR_SELECTION, (step) => {
       if (step === 3) {
-        console.log('clearing further Choice, used to be ', this.selected);
         this.$store.dispatch('SET_FURTHERCHOICE', undefined);
         this.selected = '';
       }
