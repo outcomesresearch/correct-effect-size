@@ -62,11 +62,6 @@ export default {
       this.advanceStep();
     },
   },
-  data() {
-    return {
-      historicalData: [],
-    };
-  },
 };
 </script>
 

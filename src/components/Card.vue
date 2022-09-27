@@ -36,12 +36,6 @@ export default {
       return this.identifier === this.currentlySelected;
     },
   },
-  methods: {},
-  data() {
-    return {
-      historicalData: [],
-    };
-  },
 };
 </script>
 
