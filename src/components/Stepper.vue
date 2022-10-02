@@ -1,5 +1,11 @@
 <template>
   <v-stepper v-model="currentStep">
+    <v-switch
+      v-model="fillerDescriptions"
+      :label="`Filler descriptions`"
+      @change="handleSwitchChange"
+      style="margin-left: auto; margin-right: 10px; width: max-content;"
+    ></v-switch>
     <v-stepper-header>
       <v-stepper-step :complete="currentStep > 1" step="1">
         Outcome Measure
@@ -36,9 +42,11 @@ export default {
       'getOutcomeMeasure',
       'getFocusOfAnalysis',
       'getFurtherChoice',
+      'getShowDescriptions',
     ]),
   },
   mounted() {
+    this.fillerDescriptions = this.getShowDescriptions;
     bus.$on(GO_BACK, () => {
       this.currentStep--;
       // Go back twice if we're on step 3 and this focusOfAnalysis offers no further choices
@@ -58,6 +66,10 @@ export default {
     });
   },
   methods: {
+    handleSwitchChange(switchValue) {
+      this.$store.dispatch('SET_SHOWDESCRIPTIONS', switchValue);
+      this.fillerDescriptions = switchValue;
+    },
     hasNoFurtherChoices() {
       // Whenever navigating forward thru step 3, or backwards thru step 3,
       // we need to check if there are actually choices here.
@@ -79,6 +91,7 @@ export default {
   data() {
     return {
       currentStep: 0,
+      fillerDescriptions: true,
     };
   },
 };

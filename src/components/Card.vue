@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto card"
     :class="unselectable ? 'unselectable' : ''"
     width="350"
     @click="$emit('selected', identifier)"
@@ -8,17 +8,20 @@
     :dark="isSelected"
   >
     <v-card-text>
-      <p class="text-h6">
+      <p class="text-h6" :class="getShowDescriptions ? '' : 'justTitle'">
         {{ title }}
       </p>
-      <div class="">
-        {{ description }}
+      <div class="" v-if="getShowDescriptions">
+        {{ fillerDescription }}
       </div>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
+import loremIpsum from '../services/loremIpsum';
+import { mapGetters } from 'vuex';
+
 export default {
   props: [
     'identifier',
@@ -27,8 +30,14 @@ export default {
     'description',
     'unselectable',
   ],
+  data() {
+    return {
+      fillerDescription: loremIpsum.generateParagraphs(1),
+    };
+  },
   components: {},
   computed: {
+    ...mapGetters(['getShowDescriptions']),
     getBackgroundColor() {
       return this.isSelected ? 'success' : 'white';
     },
@@ -50,5 +59,13 @@ export default {
 .unselectable {
   pointer-events: none;
   cursor: none;
+}
+
+.justTitle {
+  margin-bottom: 0px;
+}
+
+.card {
+  height: min-content;
 }
 </style>

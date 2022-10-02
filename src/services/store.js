@@ -7,6 +7,7 @@ const state = {
   outcomeMeasure: undefined,
   focusOfAnalysis: undefined,
   furtherChoice: undefined,
+  showDescriptions: true,
 };
 
 const getters = {
@@ -18,6 +19,9 @@ const getters = {
   },
   getFurtherChoice(state) {
     return state.furtherChoice;
+  },
+  getShowDescriptions(state) {
+    return state.showDescriptions;
   },
 };
 
@@ -31,6 +35,9 @@ const actions = {
   SET_FURTHERCHOICE({ commit }, value) {
     commit('SET_FURTHERCHOICE_MUTATION', value);
   },
+  SET_SHOWDESCRIPTIONS({ commit }, value) {
+    commit('SET_SHOWDESCRIPTIONS_MUTATION', value);
+  },
 };
 
 const mutations = {
@@ -42,6 +49,9 @@ const mutations = {
   },
   SET_FURTHERCHOICE_MUTATION(state, value) {
     state.furtherChoice = value;
+  },
+  SET_SHOWDESCRIPTIONS_MUTATION(state, value) {
+    state.showDescriptions = value;
   },
 };
 
