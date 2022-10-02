@@ -83,7 +83,7 @@ export default {
         ({ name }) => name === this.getFocusOfAnalysis,
       );
 
-      return furtherChoices.length === 1;
+      return furtherChoices[0].name === 'skip';
       // We've come across a focus of analysis which has no further choices and
       // we can proceed directly to the effect size measurements the investigator should use
     },
