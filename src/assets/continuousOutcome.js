@@ -1,6 +1,20 @@
+import {
+  CORRELATION_WITH_CONTINUOUS_MEASURE,
+  COMPARISON_OF_TWO_GROUPS,
+  COMPARISON_OF_THREEMORE_GROUPS,
+  REGRESSION_MODEL,
+} from './focusOfAnalysisConstants';
+
+import {
+  REPORTING_PAIRWISE_DIFFERENCES,
+  REPORITNG_OVERALL_EFFECT,
+  ADJUSTED_ASSOCIATION,
+  OVERALL_MODEL,
+} from './furtherChoicesConstants';
+
 let pearsonCorrelationCoefficientR = {
-  displayName: 'Pearson Correlation Coefficient R',
-  description: 'description of pearson correlation coefficient R',
+  displayName: 'Pearson Correlation Coefficient r',
+  description: 'description of pearson correlation coefficient r',
 };
 
 let spearmansRho = {
@@ -14,27 +28,27 @@ let coefficientOfDeterminationR2 = {
 };
 
 let meanDifference = {
-  displayName: 'Mean Difference',
+  displayName: 'Mean difference',
   description: 'description of Mean Difference',
 };
 
 let medianDifference = {
-  displayName: 'Median Difference (non parametric)',
+  displayName: 'Median difference (non parametric)',
   description: 'description of median difference (non-parametric)',
 };
 
 let cohensD = {
-  displayName: "Cohen's D",
+  displayName: "Cohen's d",
   description: "description for Cohen's D",
 };
 
 let glassDelta = {
-  displayName: "Glass' Delta",
+  displayName: "Glass's delta",
   description: "description of for Glass's Delta",
 };
 
 let hedgesG = {
-  displayName: "Hedge's G",
+  displayName: "Hedge's g",
   description: "description for Hedge's G",
 };
 
@@ -44,12 +58,12 @@ let rNonParametric = {
 };
 
 let eta2 = {
-  displayName: 'Eta Squared',
+  displayName: 'Eta squared',
   description: 'description for eta squared',
 };
 
 let omega2 = {
-  displayName: 'Omega Squared',
+  displayName: 'Omega squared',
   description: 'description for omega squared',
 };
 
@@ -87,9 +101,7 @@ export default {
     'Continuous outcomes are often measured at both baseline and followup time points. Results of continuous data can be reported as means, mean differences, or differences in change score from baseline, and measures of precision are reported as standard deviation (SD), standard error (SE), or confidence intervals.',
   focusOfAnalysis: [
     {
-      name: 'correlationWithContinuousMeasure',
-      displayName: 'Correlation with continuous measure',
-      description: 'correlationWithContinuousMeasure description',
+      ...CORRELATION_WITH_CONTINUOUS_MEASURE,
       furtherChoices: [
         {
           name: 'skip',
@@ -107,9 +119,7 @@ export default {
       ],
     },
     {
-      name: 'comparisonOfTwoGroups',
-      displayName: 'Comparison of 2 groups',
-      description: 'comparisonOfTwoGroups description',
+      ...COMPARISON_OF_TWO_GROUPS,
       furtherChoices: [
         {
           name: 'skip',
@@ -118,20 +128,14 @@ export default {
       ],
     },
     {
-      name: 'comparisonOfThreeOrMoreGroups',
-      displayName: 'Comparison of 3 or more groups',
-      description: 'comparisonOfThreeOrMoreGroups description',
+      ...COMPARISON_OF_THREEMORE_GROUPS,
       furtherChoices: [
         {
-          name: 'reportingPairWiseDifferences',
-          displayName: 'Reporting Pairwise Differences',
-          description: 'reportingPairWiseDifferences description',
+          ...REPORTING_PAIRWISE_DIFFERENCES,
           appropriateEffectSizeMeasures: effectSizeMeasuresGroup2,
         },
         {
-          name: 'reportingOverallEffect',
-          displayName: 'Reporting Overall Effect',
-          description: 'reportingOverallEffect description',
+          ...REPORITNG_OVERALL_EFFECT,
           appropriateEffectSizeMeasures: [
             {
               header: 'general',
@@ -142,14 +146,10 @@ export default {
       ],
     },
     {
-      name: 'regressionModel',
-      displayName: 'Regression model',
-      description: 'regressionModel description',
+      ...REGRESSION_MODEL,
       furtherChoices: [
         {
-          name: 'adjustedAssociationWithPredictor',
-          displayName: 'Adjusted Association with predictor',
-          description: 'Adjusted Association with predictor description',
+          ...ADJUSTED_ASSOCIATION,
           appropriateEffectSizeMeasures: [
             {
               header: 'general',
@@ -158,9 +158,7 @@ export default {
           ],
         },
         {
-          name: 'reportingOverallEffect',
-          displayName: 'Reporting Overall Effect',
-          description: 'Reporting Overall Effect description',
+          ...OVERALL_MODEL,
           appropriateEffectSizeMeasures: [
             {
               header: 'general',
