@@ -14,7 +14,7 @@
         Focus of Analysis
       </v-stepper-step>
       <v-stepper-step :complete="currentStep > 3" step="3">
-        Further choices
+        Further modifiers
       </v-stepper-step>
       <v-stepper-step :complete="currentStep > 4" step="4">
         Results

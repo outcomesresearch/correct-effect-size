@@ -5,11 +5,10 @@
         <v-card-title>
           <div>
             <h1 class="text-h5">
-              Further choices
+              Further modifiers
             </h1>
             <h2 class="text-h6 grey--text">
-              Select further options. Description about what the investigator is
-              choosing here
+              Select any relevant modifiers
             </h2>
           </div>
         </v-card-title>
