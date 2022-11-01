@@ -19,7 +19,6 @@
               :key="focusOfAnalysis.name"
               :identifier="focusOfAnalysis.name"
               :title="focusOfAnalysis.displayName"
-              :description="focusOfAnalysis.description"
               :currentlySelected="selected"
               @selected="setFocusSelection(focusOfAnalysis.name)"
             />

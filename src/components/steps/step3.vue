@@ -8,7 +8,7 @@
               Further modifiers
             </h1>
             <h2 class="text-h6 grey--text">
-              Select any relevant modifiers
+              Select any relevant modifiers to the focus of analysis
             </h2>
           </div>
         </v-card-title>
@@ -19,7 +19,6 @@
               :key="furtherChoice.name"
               :identifier="furtherChoice.name"
               :title="furtherChoice.displayName"
-              :description="furtherChoice.description"
               :currentlySelected="selected"
               @selected="setFurtherChoiceSelection(furtherChoice.name)"
             />

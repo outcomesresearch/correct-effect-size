@@ -11,9 +11,7 @@
       <p class="text-h6" :class="getShowDescriptions ? '' : 'justTitle'">
         {{ title }}
       </p>
-      <div class="" v-if="getShowDescriptions">
-        {{ fillerDescription }}
-      </div>
+      <span class="italic" v-html="description"></span>
     </v-card-text>
   </v-card>
 </template>
@@ -67,5 +65,9 @@ export default {
 
 .card {
   height: min-content;
+}
+
+.italic {
+  font-style: oblique;
 }
 </style>
