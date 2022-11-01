@@ -1,11 +1,11 @@
 <template>
   <v-stepper v-model="currentStep">
-    <v-switch
+    <!-- <v-switch
       v-model="fillerDescriptions"
       :label="`Filler descriptions`"
       @change="handleSwitchChange"
       style="margin-left: auto; margin-right: 10px; width: max-content;"
-    ></v-switch>
+    ></v-switch> -->
     <v-stepper-header>
       <v-stepper-step :complete="currentStep > 1" step="1">
         Outcome Measure

@@ -7,7 +7,7 @@ const state = {
   outcomeMeasure: undefined,
   focusOfAnalysis: undefined,
   furtherChoice: undefined,
-  showDescriptions: true,
+  showDescriptions: false,
 };
 
 const getters = {
