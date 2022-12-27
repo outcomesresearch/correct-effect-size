@@ -2,13 +2,12 @@
   <outcomes-research-wrapper
     :_title="`Choosing the Correct Effect Size Measurement`"
   >
-    <v-app class="app-container">
-      <Stepper />
-      <v-footer :padless="true">
-        <v-card flat tile width="100%" class="text-center">
-          <v-card-text>{{ t(k.FOOTER_COPYWRIGHT) }}</v-card-text>
-        </v-card>
-      </v-footer>
+    <v-app>
+      <outcomes-navbar />
+      <div class="app-container">
+        <Stepper />
+      </div>
+      <outcomes-footer :copyright="t(k.FOOTER_COPYRIGHT)" />
     </v-app>
   </outcomes-research-wrapper>
 </template>
@@ -37,9 +36,6 @@ export default {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-}
-
-#app .v-application--wrap {
   padding: 10px;
 }
 
