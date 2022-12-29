@@ -26,6 +26,13 @@ export default {
 <style lang="scss">
 @import './assets/scss/breakpoints.scss';
 
+#app,
+.app-container,
+.v-application--wrap {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 #app .v-footer {
   flex-grow: 1 !important;
   align-content: end;
@@ -33,7 +40,7 @@ export default {
 }
 
 .app-container {
-  max-width: 800px;
+  width: 800px;
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
