@@ -8,13 +8,41 @@
     :dark="isSelected"
     :disabled="disabled"
   >
+    <v-card-title
+      :class="getShowDescriptions && description ? '' : 'justTitle'"
+    >
+      {{ title }}
+      <v-spacer></v-spacer>
+      <span>
+        <v-menu offset-y :close-on-content-click="true">
+          <template v-slot:activator="{ on }">
+            <v-icon
+              v-if="supportSeeExample || supportCopyText"
+              title="copy text"
+              v-on="on"
+              @mousedown.stop
+            >
+              mdi-dots-horizontal
+            </v-icon>
+          </template>
+          <v-list dense>
+            <v-list-item-group>
+              <v-list-item v-if="supportCopyText">
+                <v-list-item-content>
+                  <v-list-item-title v-text="`Copy text`"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item v-if="supportSeeExample">
+                <v-list-item-content>
+                  <v-list-item-title v-text="`See example`"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-menu>
+      </span>
+    </v-card-title>
     <v-card-text>
-      <p
-        class="text-h6"
-        :class="getShowDescriptions && description ? '' : 'justTitle'"
-      >
-        {{ title }}
-      </p>
       <div
         class=""
         v-if="getShowDescriptions && description"
@@ -29,17 +57,41 @@ import loremIpsum from '../services/loremIpsum';
 import { mapGetters } from 'vuex';
 
 export default {
-  props: [
-    'disabled',
-    'identifier',
-    'currentlySelected',
-    'title',
-    'description',
-    'unselectable',
-  ],
+  props: {
+    supportCopyText: {
+      default: false,
+    },
+    supportSeeExample: {
+      default: false,
+    },
+    disabled: {
+      default: false,
+    },
+    identifier: {
+      default: '',
+    },
+    currentlySelected: {
+      default: false,
+    },
+    title: {
+      default: '',
+    },
+    description: {
+      default: '',
+    },
+    unselectable: {
+      default: false,
+    },
+  },
   data() {
     return {
       fillerDescription: this.description,
+      selectedItem: 1,
+      items: [
+        { text: 'Real-Time', icon: 'mdi-clock' },
+        { text: 'Audience', icon: 'mdi-account' },
+        { text: 'Conversions', icon: 'mdi-flag' },
+      ],
     };
   },
   components: {},
