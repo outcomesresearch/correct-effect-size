@@ -21,13 +21,13 @@ let pointBSerial = {
 let OR = {
   displayName: 'Odds Ratio',
   description:
-    '<p>Odds Ratio is a measure of effect size used in case-control studies. OR quantifies how much higher are the odds for exposure (risk factor) among cases as compared to controls.</p><p>OR = 1 indicates that odds are the same for cases and controls, and there is no association between the 2 variables.</p><p>OR > 1, the odds for the event of interest are higher for cases as compared to controls.</p><p>OR < 1, the odds for the event of interest are lower for cases as compared to controls.</p>',
+    '<p>Odds Ratio (OR) is a measure of effect size used in case-control studies. OR quantifies how much higher are the odds for exposure (risk factor) among cases as compared to controls.</p><p>OR = 1 indicates that odds are the same for cases and controls, and there is no association between the 2 variables.</p><p>OR > 1, the odds for the event of interest are higher for cases as compared to controls.</p><p>OR < 1, the odds for the event of interest are lower for cases as compared to controls.</p>',
 };
 
 let RR = {
   displayName: 'Risk Ratio',
   description:
-    '<p>Risk Ratio is the appropriate measure of effect size used in cohort studies</p><p>The surgical oncologist reported a weak association between prognostic comorbidities and surgical complications. The risk for surgical complications was 1.34 times (RR=1.34, 95% CI: 1.11 to 1.62) higher for patients with prognostic comorbidities at time of surgery as compared to patients with no comorbidities.</p><p>Even the upper bound of the 95% confidence interval confirms only a weak relationship between the two variables in the population.</p>',
+    '<p>Risk Ratio (RR) is a measure of the strength of association between 2 categorical variables calculated as the ratio of the probability of the outcome occurring in one group (exposed group) compared to the probability of the outcome occurring in the other (not exposed) group(s).</p><p>RR = 1 indicates that the probability of the outcome is the same in the 2 groups being compared, and there is no association between the 2 variables.</p><p>RR > 1, the probability or risk for the outcome is higher in the exposed group.</p><p>RR < 1, the probability or risk for the outcome is lower in the exposed group.</p>',
 };
 
 let riskDifference = {
@@ -50,7 +50,7 @@ const effectSizeMeasuresGroup2 = [
 ];
 
 let cramersV = {
-  displayName: "Cramer's V",
+  displayName: "Cramer's 𝑉",
   description:
     '<p>Cramer’s 𝑉 measures the strength of correlation between two nominal variables and values range from 0 to 1, with 0 indicating no association between the two variables and 1 a perfect association.</p><p>Cramer’s 𝑉 values of > 0.05 indicate weak, > 0.10 moderate, > 0.15 strong, and > 0.25 very strong association.</p>',
 };

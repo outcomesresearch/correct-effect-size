@@ -46,7 +46,7 @@
       <div
         class=""
         v-if="getShowDescriptions && description"
-        v-html="fillerDescription"
+        v-html="description"
       ></div>
     </v-card-text>
   </v-card>
@@ -84,9 +84,7 @@ export default {
     },
   },
   data() {
-    return {
-      fillerDescription: this.description,
-    };
+    return {};
   },
   components: {},
   computed: {
