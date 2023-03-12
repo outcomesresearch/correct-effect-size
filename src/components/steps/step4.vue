@@ -29,6 +29,9 @@
                 :currentlySelected="selected === result.name"
                 :unselectable="true"
                 :supportSeeExample="true"
+                @show-example="
+                  handleAppropriateEffectSizeMeasureCardClicked(result)
+                "
               />
             </div>
           </v-card-text>
@@ -64,6 +67,10 @@ export default {
   methods: {
     hasSpecialHeaders() {
       this.validEffectSizeMeasures[0].header !== 'general';
+    },
+    handleAppropriateEffectSizeMeasureCardClicked(cardInfo) {
+      this.$store.dispatch('SET_CHOSENEFFECTSIZEMEASURE', cardInfo);
+      this.advanceStep();
     },
   },
   data() {

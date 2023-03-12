@@ -3,40 +3,57 @@
     <v-card class="past-scores">
       <v-container class="container-override">
         <div>
+          <v-card-title
+            class="text-h5"
+            v-if="
+              outcomeMeasureDisplayName &&
+              focusOfAnalysisDisplayName &&
+              chosenEffectSizeMeasureDisplayName
+            "
+            >Example situation
+          </v-card-title>
+          <v-card-subtitle class="grey--text">
+            Using a {{ outcomeMeasureDisplayName }} outcome measure, focusing on
+            {{ focusOfAnalysisDisplayName }}, with an effect size measurement of
+            {{ chosenEffectSizeMeasureDisplayName }}</v-card-subtitle
+          >
           <v-card-text>
             <div class="card-container" v-if="getFocusOfAnalysis">
               <Card
                 :identifier="`outcomeMeasure`"
-                :title="outcomeMeasureDisplayName"
-                :subtitle="`Outcome Measure`"
+                :subtitle="`${outcomeMeasureDisplayName} outcome measure`"
+                :title="`A state infectious disease epidemiologist collected data on antibiotic consumption at each health care facility (HCF) in the state and examined whether there was an association between type of antibiotic and type of HCF.`"
                 :currentlySelected="false"
                 :unselectable="true"
                 width="100%"
+                :flat="true"
               />
               <Card
                 :identifier="`focusOfAnalysis`"
-                :title="focusOfAnalysisDisplayName"
-                :subtitle="`Focus of Analysis`"
+                :subtitle="`Focusing on ${focusOfAnalysisDisplayName}`"
+                :title="`The state epidemiologist is interested in assessing the strength of association between type of antibiotic use and type of health care facility.`"
                 :currentlySelected="false"
                 :unselectable="true"
                 width="100%"
+                :flat="true"
               />
               <Card
-                v-if="getFurtherChoice !== 'skip'"
+                v-if="getFurtherChoice && getFurtherChoice.name !== 'skip'"
                 :identifier="`furtherChoices`"
-                :title="getFurtherChoice"
-                :subtitle="`Further specifiers`"
+                :subtitle="furtherChoiceDisplayName"
                 :currentlySelected="false"
                 :unselectable="true"
                 width="100%"
+                :flat="true"
               />
               <Card
                 :identifier="`chosenEffectSize`"
-                :title="getChosenEffectSizeMeasureDisplayname"
-                :subtitle="`Chosen Effect Size`"
+                :subtitle="`Effect size measurement of ${chosenEffectSizeMeasureDisplayName}`"
+                :title="`<p>The state epidemiologist is interested in assessing the strength of association between type of antibiotic use and type of health care facility.</p><p>The state epidemiologist reported 𝑉 = 0.28; 95% CI 0.19 to 0.37. The epidemiologist can state, with 95% confidence, that the observed moderate effect size is also true in the population with the range of values between 0.19 and 0.37.</p>`"
                 :currentlySelected="false"
                 :unselectable="true"
                 width="100%"
+                :flat="true"
               />
             </div>
           </v-card-text>
@@ -75,12 +92,15 @@ export default {
       return this.getOutcomeMeasure && this.getOutcomeMeasure.displayName;
     },
     focusOfAnalysisDisplayName() {
-      return this.getFocusOfAnalysis && this.getFocusOfAnalysis.displayName;
+      return (
+        this.getFocusOfAnalysis &&
+        this.getFocusOfAnalysis.displayName.toLowerCase()
+      );
     },
-    getFurtherChoiceDisplayName() {
+    furtherChoiceDisplayName() {
       return this.getFurtherChoice && this.getFurtherChoice.displayName;
     },
-    getChosenEffectSizeMeasureDisplayname() {
+    chosenEffectSizeMeasureDisplayName() {
       return (
         this.getChosenEffectSizeMeasure &&
         this.getChosenEffectSizeMeasure.displayName

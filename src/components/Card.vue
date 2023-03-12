@@ -7,11 +7,11 @@
     :color="getBackgroundColor"
     :dark="currentlySelected"
     :disabled="disabled"
+    :flat="true"
+    :outlined="true"
   >
-    <v-card-title
-      :class="getShowDescriptions && description ? '' : 'justTitle'"
-    >
-      {{ title }}
+    <v-card-title :class="getShowDescriptions && description ? '' : 'justTitle'"
+      ><span v-html="title"></span>
       <v-spacer></v-spacer>
       <span>
         <v-menu offset-y :close-on-content-click="true">
@@ -37,7 +37,7 @@
                 <v-list-item-content>
                   <v-list-item-title
                     v-text="`See example`"
-                    @click="handleShowExample"
+                    @click="$emit('show-example', identifier)"
                   ></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -103,13 +103,7 @@ export default {
   computed: {
     ...mapGetters(['getShowDescriptions']),
     getBackgroundColor() {
-      return this.currentlySelected ? 'success' : 'white';
-    },
-  },
-  methods: {
-    handleShowExample() {
-      this.$store.dispatch('SET_CHOSENEFFECTSIZEMEASURE', this.identifier);
-      this.advanceStep();
+      return this.currentlySelected ? 'success' : '';
     },
   },
 };
