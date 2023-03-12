@@ -16,7 +16,7 @@
               :identifier="furtherChoice.name"
               :title="furtherChoice.displayName"
               :description="furtherChoice.description"
-              :currentlySelected="selected"
+              :currentlySelected="selected === furtherChoice.name"
               @selected="setFurtherChoiceSelection(furtherChoice.name)"
             />
           </div>

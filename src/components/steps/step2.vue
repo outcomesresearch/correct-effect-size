@@ -16,7 +16,7 @@
               :identifier="focusOfAnalysis.name"
               :title="focusOfAnalysis.displayName"
               :description="focusOfAnalysis.description"
-              :currentlySelected="selected"
+              :currentlySelected="selected === focusOfAnalysis.name"
               @selected="setFocusSelection(focusOfAnalysis.name)"
             />
           </div>

@@ -5,7 +5,7 @@
     width="350"
     @click="$emit('selected', identifier)"
     :color="getBackgroundColor"
-    :dark="isSelected"
+    :dark="currentlySelected"
     :disabled="disabled"
   >
     <v-card-title
@@ -86,22 +86,13 @@ export default {
   data() {
     return {
       fillerDescription: this.description,
-      selectedItem: 1,
-      items: [
-        { text: 'Real-Time', icon: 'mdi-clock' },
-        { text: 'Audience', icon: 'mdi-account' },
-        { text: 'Conversions', icon: 'mdi-flag' },
-      ],
     };
   },
   components: {},
   computed: {
     ...mapGetters(['getShowDescriptions']),
     getBackgroundColor() {
-      return this.isSelected ? 'success' : 'white';
-    },
-    isSelected() {
-      return this.identifier === this.currentlySelected;
+      return this.currentlySelected ? 'success' : 'white';
     },
   },
 };

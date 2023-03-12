@@ -26,7 +26,7 @@
                 :identifier="result.name"
                 :title="result.displayName"
                 :description="result.description"
-                :currentlySelected="selected"
+                :currentlySelected="selected === result.name"
                 :unselectable="true"
               />
             </div>
