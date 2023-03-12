@@ -46,7 +46,6 @@
 <script>
 import Card from '../Card.vue';
 import { mapGetters } from 'vuex';
-import outcomes from '../../assets/aggregatedDecisionTree';
 import { bus, CLEAR_SELECTION } from '../../services/bus';
 
 export default {
@@ -60,18 +59,19 @@ export default {
     });
   },
   computed: {
-    ...mapGetters(['getOutcomeMeasure', 'getFocusOfAnalysis']),
+    ...mapGetters(['getFocusOfAnalysis']),
     validFurtherChoices() {
-      if (!this.getOutcomeMeasure || !this.getFocusOfAnalysis) return [];
-      return outcomes
-        .find((outcome) => outcome.name === this.getOutcomeMeasure)
-        .focusOfAnalysis.find((focus) => focus.name === this.getFocusOfAnalysis)
-        .furtherChoices;
+      return this.getFocusOfAnalysis
+        ? this.getFocusOfAnalysis.furtherChoices
+        : [];
     },
   },
   methods: {
     setFurtherChoiceSelection(name) {
-      this.$store.dispatch('SET_FURTHERCHOICE', name);
+      this.$store.dispatch(
+        'SET_FURTHERCHOICE',
+        this.getFocusOfAnalysis.furtherChoices.find((a) => a.name === name),
+      );
       this.selected = name;
     },
     prepareToBackUp() {

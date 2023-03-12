@@ -61,7 +61,10 @@ export default {
       this.currentStep++;
       // Advance again if we're on step 3 and this focusOfAnalysis offers no further choices
       if (this.currentStep === 3 && this.hasNoFurtherChoices()) {
-        this.$store.dispatch('SET_FURTHERCHOICE', 'skip');
+        this.$store.dispatch(
+          'SET_FURTHERCHOICE',
+          this.getFocusOfAnalysis.furtherChoices[0],
+        );
         this.currentStep++;
       }
     });
@@ -76,15 +79,7 @@ export default {
       // we need to check if there are actually choices here.
       // Some focuses of analyses allow user to skip directly to the recommended effect size measurements
 
-      const { focusOfAnalysis } = outcomes.find(
-        ({ name }) => name === this.getOutcomeMeasure,
-      );
-
-      const { furtherChoices } = focusOfAnalysis.find(
-        ({ name }) => name === this.getFocusOfAnalysis,
-      );
-
-      return furtherChoices[0].name === 'skip';
+      return this.getFocusOfAnalysis.furtherChoices[0].name === 'skip';
       // We've come across a focus of analysis which has no further choices and
       // we can proceed directly to the effect size measurements the investigator should use
     },

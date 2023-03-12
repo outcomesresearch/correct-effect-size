@@ -62,9 +62,9 @@ export default {
   computed: {
     ...mapGetters(['getOutcomeMeasure']),
     validFociOfAnalysis() {
-      if (!this.getOutcomeMeasure) return [];
-      return outcomes.find((outcome) => outcome.name === this.getOutcomeMeasure)
-        .focusOfAnalysis;
+      return this.getOutcomeMeasure
+        ? this.getOutcomeMeasure.focusOfAnalysis
+        : [];
     },
   },
   methods: {
@@ -78,7 +78,10 @@ export default {
       this.goBackStep();
     },
     setFocusSelection(name) {
-      this.$store.dispatch('SET_FOCUSOFANALYSIS', name);
+      this.$store.dispatch(
+        'SET_FOCUSOFANALYSIS',
+        this.getOutcomeMeasure.focusOfAnalysis.find((a) => a.name === name),
+      );
       this.selected = name;
     },
   },

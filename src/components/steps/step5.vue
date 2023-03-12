@@ -72,25 +72,19 @@ export default {
       'getChosenEffectSizeMeasure',
     ]),
     outcomeMeasureDisplayName() {
-      return outcomes.find((outcome) => outcome.name == this.getOutcomeMeasure)
-        .displayName;
+      return this.getOutcomeMeasure && this.getOutcomeMeasure.displayName;
     },
     focusOfAnalysisDisplayName() {
-      return outcomes
-        .find((outcome) => outcome.name === this.getOutcomeMeasure)
-        .focusOfAnalysis.find((focus) => focus.name === this.getFocusOfAnalysis)
-        .displayName;
+      return this.getFocusOfAnalysis && this.getFocusOfAnalysis.displayName;
     },
-    getFurtherChoicesDisplayName() {
-      return outcomes
-        .find((outcome) => outcome.name === this.getOutcomeMeasure)
-        .focusOfAnalysis.find((focus) => focus.name === this.getFocusOfAnalysis)
-        .furtherChoices.find(
-          (furtherChoice) => furtherChoice.name === this.getFurtherChoice,
-        ).displayName;
+    getFurtherChoiceDisplayName() {
+      return this.getFurtherChoice && this.getFurtherChoice.displayName;
     },
     getChosenEffectSizeMeasureDisplayname() {
-      return 'Chosen Effect Size Measure Display Name';
+      return (
+        this.getChosenEffectSizeMeasure &&
+        this.getChosenEffectSizeMeasure.displayName
+      );
     },
   },
   data() {

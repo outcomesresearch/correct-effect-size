@@ -52,30 +52,13 @@
 <script>
 import Card from '../Card.vue';
 import { mapGetters } from 'vuex';
-import outcomes from '../../assets/aggregatedDecisionTree';
 
 export default {
   components: { Card },
   computed: {
-    ...mapGetters([
-      'getOutcomeMeasure',
-      'getFocusOfAnalysis',
-      'getFurtherChoice',
-    ]),
+    ...mapGetters(['getFurtherChoice']),
     validEffectSizeMeasures() {
-      if (
-        !this.getOutcomeMeasure ||
-        !this.getFocusOfAnalysis ||
-        !this.getFurtherChoice
-      ) {
-        return [];
-      }
-      return outcomes
-        .find((outcome) => outcome.name === this.getOutcomeMeasure)
-        .focusOfAnalysis.find((focus) => focus.name === this.getFocusOfAnalysis)
-        .furtherChoices.find(
-          (furtherChoice) => furtherChoice.name === this.getFurtherChoice,
-        ).appropriateEffectSizeMeasures;
+      return this.getFurtherChoice.appropriateEffectSizeMeasures;
     },
   },
   methods: {

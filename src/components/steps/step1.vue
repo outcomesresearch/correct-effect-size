@@ -71,7 +71,10 @@ export default {
       this.goBackStep();
     },
     setOutcomeSelection(name) {
-      this.$store.dispatch('SET_OUTCOMEMEAURE', name);
+      this.$store.dispatch(
+        'SET_OUTCOMEMEAURE',
+        outcomes.find((a) => a.name === name),
+      );
       this.selected = name;
     },
   },
