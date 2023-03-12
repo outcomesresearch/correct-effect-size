@@ -3,15 +3,11 @@
     <v-card class="past-scores">
       <v-container class="container-override">
         <v-card-title>
-          <div>
-            <h1 class="text-h5">
-              Focus of Analysis
-            </h1>
-            <h2 class="text-h6 grey--text">
-              Select the focus of analysis
-            </h2>
-          </div>
+          Focus of Analysis
         </v-card-title>
+        <v-card-subtitle class="grey--text">
+          Select the focus of analysis
+        </v-card-subtitle>
         <v-card-text>
           <div class="card-container" v-if="getOutcomeMeasure">
             <Card

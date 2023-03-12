@@ -2,16 +2,10 @@
   <v-stepper-content step="1">
     <v-card class="past-scores">
       <v-container class="container-override">
-        <v-card-title>
-          <div>
-            <h1 class="text-h5">
-              Outcome Meaure
-            </h1>
-            <h2 class="text-h6 grey--text">
-              Select the type of outcome variable being analyzed or compared
-            </h2>
-          </div>
-        </v-card-title>
+        <v-card-title>Outcome Meaure</v-card-title>
+        <v-card-subtitle class="grey--text">
+          Select the type of outcome variable being analyzed or compared
+        </v-card-subtitle>
         <v-card-text>
           <div class="card-container">
             <Card

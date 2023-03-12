@@ -3,16 +3,12 @@
     <v-card class="past-scores">
       <v-container class="container-override" v-if="getFurtherChoice">
         <v-card-title class="text-h5">
-          <div>
-            <h1 class="text-h5">
-              Appropriate Effect Size Measurements
-            </h1>
-            <h2 class="text-h6 grey--text">
-              Based on the inputs you've given, these are the appropriate effect
-              size measurements to consider for your investigation.
-            </h2>
-          </div></v-card-title
-        >
+          Appropriate Effect Size Measurements
+        </v-card-title>
+        <v-card-subtitle class="grey--text">
+          Based on the inputs you've given, these are the appropriate effect
+          size measurements to consider for your investigation.
+        </v-card-subtitle>
         <div v-for="header in validEffectSizeMeasures" :key="header.header">
           <v-toolbar
             v-if="header.header !== 'general'"

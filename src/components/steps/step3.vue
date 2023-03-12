@@ -3,15 +3,11 @@
     <v-card class="past-scores">
       <v-container class="container-override">
         <v-card-title>
-          <div>
-            <h1 class="text-h5">
-              Further modifiers
-            </h1>
-            <h2 class="text-h6 grey--text">
-              Select any relevant modifiers
-            </h2>
-          </div>
+          Further modifiers
         </v-card-title>
+        <v-card-subtitle class="grey--text">
+          Select any relevant modifiers
+        </v-card-subtitle>
         <v-card-text>
           <div class="card-container" v-if="getFocusOfAnalysis">
             <Card
