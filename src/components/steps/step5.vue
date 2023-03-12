@@ -18,7 +18,10 @@
             {{ chosenEffectSizeMeasureDisplayName }}</v-card-subtitle
           >
           <v-card-text>
-            <div class="card-container" v-if="getFocusOfAnalysis">
+            <div
+              class="card-container example-card-container"
+              v-if="getFocusOfAnalysis"
+            >
               <Card
                 :identifier="`outcomeMeasure`"
                 :subtitle="`${outcomeMeasureDisplayName} outcome measure`"

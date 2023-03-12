@@ -10,7 +10,9 @@
     :flat="true"
     :outlined="true"
   >
-    <v-card-title :class="getShowDescriptions && description ? '' : 'justTitle'"
+    <v-card-title
+      v-if="title"
+      :class="getShowDescriptions && description ? '' : 'justTitle'"
       ><span v-html="title"></span>
       <v-spacer></v-spacer>
       <span>
@@ -49,12 +51,8 @@
     <v-card-subtitle v-if="subtitle" class="grey--text">
       {{ subtitle }}
     </v-card-subtitle>
-    <v-card-text>
-      <div
-        class=""
-        v-if="getShowDescriptions && description"
-        v-html="description"
-      ></div>
+    <v-card-text v-if="getShowDescriptions && description">
+      <div class="" v-html="description"></div>
     </v-card-text>
   </v-card>
 </template>

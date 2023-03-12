@@ -64,6 +64,13 @@ export default {
   color: hsla(0, 0%, 100%, 0.9);
 }
 
+// Special styling for titles cards used by Step5
+.example-card-container .v-card__title {
+  line-height: 1.15em;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
 @media only screen and (max-width: $SMALL) {
   #app .v-stepper,
   #app .v-stepper__wrapper,
