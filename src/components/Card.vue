@@ -8,10 +8,10 @@
     :dark="isSelected"
   >
     <v-card-text>
-      <p class="text-h6" :class="getShowDescriptions ? '' : 'justTitle'">
+      <p class="text-h6" :class="getShowDescriptions && description ? '' : 'justTitle'">
         {{ title }}
       </p>
-      <div class="" v-if="getShowDescriptions">
+      <div class="" v-if="getShowDescriptions && description">
         {{ fillerDescription }}
       </div>
     </v-card-text>
@@ -32,7 +32,7 @@ export default {
   ],
   data() {
     return {
-      fillerDescription: loremIpsum.generateParagraphs(1),
+      fillerDescription: this.description,
     };
   },
   components: {},
