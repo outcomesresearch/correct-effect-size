@@ -6,6 +6,7 @@
     @click="$emit('selected', identifier)"
     :color="getBackgroundColor"
     :dark="isSelected"
+    :disabled="disabled"
   >
     <v-card-text>
       <p
@@ -29,6 +30,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   props: [
+    'disabled',
     'identifier',
     'currentlySelected',
     'title',
