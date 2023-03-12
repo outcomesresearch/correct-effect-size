@@ -2,7 +2,7 @@
   <v-card
     class="mx-auto card"
     :class="unselectable ? 'unselectable' : ''"
-    width="calc(50% - 30px)"
+    :width="width"
     @click="$emit('selected', identifier)"
     :color="getBackgroundColor"
     :dark="currentlySelected"
@@ -46,6 +46,9 @@
         </v-menu>
       </span>
     </v-card-title>
+    <v-card-subtitle v-if="subtitle" class="grey--text">
+      {{ subtitle }}
+    </v-card-subtitle>
     <v-card-text>
       <div
         class=""
@@ -78,13 +81,19 @@ export default {
       default: false,
     },
     title: {
-      default: '',
+      default: undefined,
     },
     description: {
       default: '',
     },
     unselectable: {
       default: false,
+    },
+    width: {
+      default: `calc(50% - 30px)`,
+    },
+    subtitle: {
+      default: undefined,
     },
   },
   data() {
