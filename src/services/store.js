@@ -8,6 +8,7 @@ const state = {
   focusOfAnalysis: undefined,
   furtherChoice: undefined,
   showDescriptions: true,
+  chosenEffectSizeMeasure: undefined,
 };
 
 const getters = {
@@ -22,6 +23,9 @@ const getters = {
   },
   getShowDescriptions(state) {
     return state.showDescriptions;
+  },
+  getChosenEffectSizeMeasure(state) {
+    return state.chosenEffectSizeMeasure;
   },
 };
 
@@ -38,6 +42,9 @@ const actions = {
   SET_SHOWDESCRIPTIONS({ commit }, value) {
     commit('SET_SHOWDESCRIPTIONS_MUTATION', value);
   },
+  SET_CHOSENEFFECTSIZEMEASURE({ commit }, value) {
+    commit('SET_CHOSENEFFECTSIZEMEASURE_MUTATION', value);
+  },
 };
 
 const mutations = {
@@ -52,6 +59,9 @@ const mutations = {
   },
   SET_SHOWDESCRIPTIONS_MUTATION(state, value) {
     state.showDescriptions = value;
+  },
+  SET_CHOSENEFFECTSIZEMEASURE_MUTATION(state, value) {
+    state.chosenEffectSizeMeasure = value;
   },
 };
 

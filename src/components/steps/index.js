@@ -3,5 +3,6 @@ import Step1 from './step1.vue';
 import Step2 from './step2.vue';
 import Step3 from './step3.vue';
 import Step4 from './step4.vue';
+import Step5 from './step5.vue';
 
-export { Step0, Step1, Step2, Step3, Step4 };
+export { Step0, Step1, Step2, Step3, Step4, Step5 };

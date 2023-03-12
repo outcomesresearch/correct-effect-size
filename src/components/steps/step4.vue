@@ -28,6 +28,7 @@
                 :description="result.description"
                 :currentlySelected="selected === result.name"
                 :unselectable="true"
+                :supportSeeExample="true"
               />
             </div>
           </v-card-text>

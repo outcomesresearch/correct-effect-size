@@ -17,8 +17,9 @@
         <v-menu offset-y :close-on-content-click="true">
           <template v-slot:activator="{ on }">
             <v-icon
+              class="all-pointer-events"
               v-if="supportSeeExample || supportCopyText"
-              title="copy text"
+              title="More Options"
               v-on="on"
               @mousedown.stop
             >
@@ -34,7 +35,10 @@
               </v-list-item>
               <v-list-item v-if="supportSeeExample">
                 <v-list-item-content>
-                  <v-list-item-title v-text="`See example`"></v-list-item-title>
+                  <v-list-item-title
+                    v-text="`See example`"
+                    @click="handleShowExample"
+                  ></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list-item-group>
@@ -93,6 +97,12 @@ export default {
       return this.currentlySelected ? 'success' : 'white';
     },
   },
+  methods: {
+    handleShowExample() {
+      this.$store.dispatch('SET_CHOSENEFFECTSIZEMEASURE', this.identifier);
+      this.advanceStep();
+    },
+  },
 };
 </script>
 
@@ -111,6 +121,11 @@ export default {
 .unselectable {
   pointer-events: none;
   cursor: none;
+}
+
+.all-pointer-events {
+  pointer-events: all;
+  cursor: pointer;
 }
 
 .justTitle {
