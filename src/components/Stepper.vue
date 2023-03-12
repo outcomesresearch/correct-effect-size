@@ -17,7 +17,7 @@
         Further modifiers
       </v-stepper-step>
       <v-stepper-step :complete="currentStep > 4" step="4">
-        Results
+        Effect Size Measurement
       </v-stepper-step>
     </v-stepper-header>
 

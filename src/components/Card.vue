@@ -2,7 +2,7 @@
   <v-card
     class="mx-auto card"
     :class="unselectable ? 'unselectable' : ''"
-    width="350"
+    width="calc(50% - 30px)"
     @click="$emit('selected', identifier)"
     :color="getBackgroundColor"
     :dark="currentlySelected"
@@ -102,6 +102,10 @@ export default {
 @media only screen and (max-width: $SMALL) {
   #app .text-h6 {
     font-size: 1.1rem !important;
+  }
+
+  .card {
+    width: 100% !important;
   }
 }
 .unselectable {

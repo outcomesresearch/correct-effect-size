@@ -40,7 +40,7 @@ export default {
 }
 
 .app-container {
-  width: 800px;
+  width: max-content;
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
