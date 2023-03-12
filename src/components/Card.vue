@@ -8,12 +8,17 @@
     :dark="isSelected"
   >
     <v-card-text>
-      <p class="text-h6" :class="getShowDescriptions && description ? '' : 'justTitle'">
+      <p
+        class="text-h6"
+        :class="getShowDescriptions && description ? '' : 'justTitle'"
+      >
         {{ title }}
       </p>
-      <div class="" v-if="getShowDescriptions && description">
-        {{ fillerDescription }}
-      </div>
+      <div
+        class=""
+        v-if="getShowDescriptions && description"
+        v-html="fillerDescription"
+      ></div>
     </v-card-text>
   </v-card>
 </template>

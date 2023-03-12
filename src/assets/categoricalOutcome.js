@@ -14,54 +14,63 @@ import {
 
 let pointBSerial = {
   displayName: 'Point Bi-serial correlation',
-  description: 'Point Bi-serial correlation description',
+  description:
+    'Point biserial correlation coefficient quantifies the strength of association between a continuous and a  dichotomous variable.',
 };
 
 let OR = {
-  displayName: 'OR',
-  description: 'OR Description',
+  displayName: 'Odds Ratio',
+  description:
+    '<p>Odds Ratio is a measure of effect size used in case-control studies. OR quantifies how much higher are the odds for exposure (risk factor) among cases as compared to controls.</p><p>OR = 1 indicates that odds are the same for cases and controls, and there is no association between the 2 variables.</p><p>OR > 1, the odds for the event of interest are higher for cases as compared to controls.</p><p>OR < 1, the odds for the event of interest are lower for cases as compared to controls.</p>',
 };
 
-let PR = {
-  displayName: 'PR',
-  description: 'PR Description',
+let RR = {
+  displayName: 'Risk Ratio',
+  description:
+    '<p>Risk Ratio is the appropriate measure of effect size used in cohort studies</p><p>The surgical oncologist reported a weak association between prognostic comorbidities and surgical complications. The risk for surgical complications was 1.34 times (RR=1.34, 95% CI: 1.11 to 1.62) higher for patients with prognostic comorbidities at time of surgery as compared to patients with no comorbidities.</p><p>Even the upper bound of the 95% confidence interval confirms only a weak relationship between the two variables in the population.</p>',
 };
 
 let riskDifference = {
   displayName: 'Risk Difference',
-  description: 'Risk Difference Description',
+  description:
+    'Risk difference is the difference between the risk of an outcome of interest occurring in two groups.',
 };
 
 let phi = {
-  displayName: 'Phi',
-  description: 'Phi Description',
+  displayName: 'Phi coefficient',
+  description:
+    '<p>The phi coefficient (ɸ) is a measure of the strength of association between two dichotomous variables.</p><p>Phi coefficient has a range from 0-1 with 0 value displaying no correlation between the two variables.</p><p>A value of 0.1 is considered a small effect, 0.3 medium effect, and 0.5 large effect.</p>',
 };
 
 const effectSizeMeasuresGroup2 = [
   {
     header: 'general',
-    items: [OR, PR, riskDifference, phi],
+    items: [OR, RR, riskDifference, phi],
   },
 ];
 
 let cramersV = {
   displayName: "Cramer's V",
-  description: 'phi Description',
+  description:
+    '<p>Cramer’s 𝑉 measures the strength of correlation between two nominal variables and values range from 0 to 1, with 0 indicating no association between the two variables and 1 a perfect association.</p><p>Cramer’s 𝑉 values of > 0.05 indicate weak, > 0.10 moderate, > 0.15 strong, and > 0.25 very strong association.</p>',
 };
 
 let goodmanKruskalLamda = {
-  displayName: 'Goodman-Kruskal Lamda',
-  description: 'Goodman-Kruskal Lamda Description',
+  displayName: 'Goodman-Kruskal λ',
+  description:
+    '<p>Goodman and Kruskal’s Lambda (λ) measures the association between 2 nominal variables based on proportional reduction of error. Values of lambda are interpreted as percentages.</p><p>Range is from 0 to 1 (0 to 100%) with zero displaying no improvement in prediction of the dependent variable based on the values of the independent variable, and 100% displaying perfect prediction or association between variables.</p>',
 };
 
 let cliffsDelta = {
-  displayName: "Cliff's delta",
-  description: "Cliff's delta Description",
+  displayName: "Cliff's Δ",
+  description:
+    '<p>Cliff’s delta (Δ) is a measure of effect size that quantifies the amount of difference in the distribution of the values of an ordinal variable, between two groups of observations.</p><p>Cliff’s delta range is -1 to 1, with zero indicating no difference and 1 indicating that values in the first group are larger than values in the second group.</p>',
 };
 
 let kendallsTau = {
-  displayName: "Kendall's tau",
-  description: "Kendall's tau Description",
+  displayName: "Kendall's 𝝩",
+  description:
+    '<p>Kendall’s tau (𝝩) rank correlation coefficient is a measure of the strength of association between ordinal variables.</p><p>Kendall’s tau ranges from 0 to 1, with 0 indicating no association and 1 is a perfect association between the two variables.</p>',
 };
 
 const effectSizeMeasuresGroup3 = [
@@ -77,24 +86,27 @@ const effectSizeMeasuresGroup3 = [
 
 const pseudoRSquared = {
   displayName: 'Pseudo R Squared',
-  description: 'Pseudo R Squared description',
+  description:
+    '<p>Pseudo R-squared statistics are measures of model fit when the dependent variable is categorical. As a measure of effect size, the pseudo R-squared quantifies the proportion of variance that is explained by the variables in the model as compared to a model with no variables in it.</p><p>Pseudo R-squared should not be reported alone and are of value when comparing performance of different models.</p>',
 };
 
 const cIndex = {
   displayName: 'C-Index',
-  description: 'C-Index description',
+  description:
+    '<p>The c-index is a measure of the discriminative power of a prediction model. C-statistic is equivalent to AUC in ROC analysis.</p><p>If subjects with different outcomes are paired, c-index is the proportion of pairs where the subjects with the larger predicted probability are the subjects that experience the outcome.</p><p>C-index ranges from 0.5 to 1, with 0.5 shown no better discrimination than chance alone, and 1 indicating perfect discriminative power of the model.</p>',
 };
 
 const percentCorrectlyClassified = {
   displayName: 'Percent correctly classified',
-  description: 'Percent Correctly Classified description',
+  description:
+    '<p>The percent correctly classified is a measure of model fit that quantifies what percentage of the cases in the sample data are correctly classified by the prediction model.</p><p>Percent correctly classified should be reported together with correctly classified for each of the categories of the dependent variable.</p>',
 };
 
 export default {
   name: 'categorical',
   displayName: 'Categorical',
   description:
-    'These are dependent variables that have mutually exclusive outcomes. That is, the choice of one outcome means non-use of the other outcome. An example is a household that may choose to use charcoal, LPG, or electricity for cooking but not the use of two of these categories at a time.',
+    'Categorical level variables are qualitative variables that are organized in groups (e.g., gender, TNM stage).',
   focusOfAnalysis: [
     {
       ...CORRELATION_WITH_CONTINUOUS_MEASURE,
