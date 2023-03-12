@@ -29,7 +29,7 @@
                 :key="result.name"
                 :identifier="result.name"
                 :title="result.displayName"
-                :description="`<span class='italic'>Report with 95% CI as a measure of precision.<br>Interpret in light of clinical importance.</span>`"
+                :description="result.description"
                 :currentlySelected="selected"
                 :unselectable="true"
               />

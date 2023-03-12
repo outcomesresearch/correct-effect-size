@@ -19,6 +19,7 @@
               :key="outcomeType.name"
               :identifier="outcomeType.name"
               :title="outcomeType.displayName"
+              :description="outcomeType.description"
               :currentlySelected="selected"
               @selected="setOutcomeSelection(outcomeType.name)"
             />
