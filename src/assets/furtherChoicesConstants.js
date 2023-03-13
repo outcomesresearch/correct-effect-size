@@ -21,3 +21,9 @@ export const OVERALL_MODEL = {
   displayName: 'Overall model',
   description: '',
 };
+
+export const SKIP_FURTHER_CHOICES = {
+  name: 'skip',
+  displayName: 'Not shown because this signifies we skip this step',
+  description: '',
+};

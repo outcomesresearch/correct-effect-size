@@ -28,7 +28,9 @@
                 :description="result.description"
                 :currentlySelected="selected === result.name"
                 :unselectable="true"
-                :supportSeeExample="true"
+                :supportSeeExample="
+                  exampleExistsForThisDecisionPath(result.name)
+                "
                 @show-example="
                   handleAppropriateEffectSizeMeasureCardClicked(result)
                 "
@@ -38,13 +40,13 @@
         </div>
         <v-card-actions class="show-on-desktop">
           <div class="button-container">
-            <v-btn text @click="goBackStep">{{ t(k.BACK) }}</v-btn>
+            <v-btn text @click="prepareToBackUp">{{ t(k.BACK) }}</v-btn>
             <v-spacer></v-spacer>
           </div>
         </v-card-actions>
         <v-card-actions class="show-on-mobile">
           <div class="button-container">
-            <v-btn text @click="goBackStep">{{ t(k.BACK) }}</v-btn>
+            <v-btn text @click="prepareToBackUp">{{ t(k.BACK) }}</v-btn>
           </div>
         </v-card-actions>
       </v-container>
@@ -55,11 +57,26 @@
 <script>
 import Card from '../Card.vue';
 import { mapGetters } from 'vuex';
+import { bus, CLEAR_SELECTION } from '../../services/bus';
+import examples from '../../assets/examples';
 
 export default {
   components: { Card },
+  mounted() {
+    bus.$on(CLEAR_SELECTION, (step) => {
+      if (step === 4) {
+        this.$store.dispatch('SET_CHOSENEFFECTSIZEMEASURE', undefined);
+        this.selected = '';
+      }
+    });
+  },
   computed: {
-    ...mapGetters(['getFurtherChoice']),
+    ...mapGetters([
+      'getOutcomeMeasure',
+      'getFocusOfAnalysis',
+      'getFurtherChoice',
+      'getChosenEffectSizeMeasure',
+    ]),
     validEffectSizeMeasures() {
       return this.getFurtherChoice.appropriateEffectSizeMeasures;
     },
@@ -71,6 +88,35 @@ export default {
     handleAppropriateEffectSizeMeasureCardClicked(cardInfo) {
       this.$store.dispatch('SET_CHOSENEFFECTSIZEMEASURE', cardInfo);
       this.advanceStep();
+    },
+    prepareToBackUp() {
+      bus.$emit(CLEAR_SELECTION, 4);
+      this.goBackStep();
+    },
+    exampleExistsForThisDecisionPath(chosenEffectSize) {
+      // If anything step is incomplete whether we're on it or not, early exit
+      if (
+        !this.getOutcomeMeasure ||
+        !this.getFocusOfAnalysis ||
+        !this.getFurtherChoice
+      )
+        return false;
+
+      const outcomeMeasure = examples[this.getOutcomeMeasure.name];
+      const focusOfAnalysis =
+        outcomeMeasure && outcomeMeasure[this.getFocusOfAnalysis.name];
+      const furtherChoice =
+        focusOfAnalysis && focusOfAnalysis[this.getFurtherChoice.name];
+      const chosenEffectSizeExample =
+        furtherChoice && furtherChoice[chosenEffectSize];
+
+      return (
+        examples &&
+        outcomeMeasure &&
+        focusOfAnalysis &&
+        furtherChoice &&
+        chosenEffectSizeExample
+      );
     },
   },
   data() {

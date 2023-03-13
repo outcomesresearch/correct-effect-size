@@ -20,12 +20,16 @@
           <v-card-text>
             <div
               class="card-container example-card-container"
-              v-if="getFocusOfAnalysis"
+              v-if="
+                getFocusOfAnalysis &&
+                getFurtherChoice &&
+                getChosenEffectSizeMeasure
+              "
             >
               <Card
                 :identifier="`outcomeMeasure`"
                 :subtitle="`${outcomeMeasureDisplayName} outcome measure`"
-                :title="`A state infectious disease epidemiologist collected data on antibiotic consumption at each health care facility (HCF) in the state and examined whether there was an association between type of antibiotic and type of HCF.`"
+                :title="getExampleText().outcomeMeasure"
                 :currentlySelected="false"
                 :unselectable="true"
                 width="100%"
@@ -34,7 +38,7 @@
               <Card
                 :identifier="`focusOfAnalysis`"
                 :subtitle="`Focusing on ${focusOfAnalysisDisplayName}`"
-                :title="`The state epidemiologist is interested in assessing the strength of association between type of antibiotic use and type of health care facility.`"
+                :title="getExampleText().focusOfAnalysis"
                 :currentlySelected="false"
                 :unselectable="true"
                 width="100%"
@@ -52,7 +56,7 @@
               <Card
                 :identifier="`chosenEffectSize`"
                 :subtitle="`Effect size measurement of ${chosenEffectSizeMeasureDisplayName}`"
-                :title="`<p>The state epidemiologist is interested in assessing the strength of association between type of antibiotic use and type of health care facility.</p><p>The state epidemiologist reported 𝑉 = 0.28; 95% CI 0.19 to 0.37. The epidemiologist can state, with 95% confidence, that the observed moderate effect size is also true in the population with the range of values between 0.19 and 0.37.</p>`"
+                :title="getExampleText().chosenEffectSizeMeasure"
                 :currentlySelected="false"
                 :unselectable="true"
                 width="100%"
@@ -80,10 +84,17 @@
 <script>
 import Card from '../Card.vue';
 import { mapGetters } from 'vuex';
-import outcomes from '../../assets/aggregatedDecisionTree';
+import examples from '../../assets/examples/';
 
 export default {
   components: { Card },
+  methods: {
+    getExampleText() {
+      return examples[this.getOutcomeMeasure.name][
+        this.getFocusOfAnalysis.name
+      ][this.getFurtherChoice.name][this.getChosenEffectSizeMeasure.name];
+    },
+  },
   computed: {
     ...mapGetters([
       'getOutcomeMeasure',
