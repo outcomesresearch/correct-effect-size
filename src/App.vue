@@ -39,6 +39,10 @@ export default {
   background: none;
 }
 
+#app .step-card > .container-override > .v-card__text {
+  padding-bottom: 0px;
+}
+
 .app-container {
   width: max-content;
   margin-left: auto;

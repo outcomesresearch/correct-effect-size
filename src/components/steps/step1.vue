@@ -1,6 +1,6 @@
 <template>
   <v-stepper-content step="1">
-    <v-card class="past-scores">
+    <v-card class="step-card">
       <v-container class="container-override">
         <v-card-title>Outcome Meaure</v-card-title>
         <v-card-subtitle class="grey--text">

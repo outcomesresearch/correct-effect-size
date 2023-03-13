@@ -1,6 +1,6 @@
 <template>
   <v-stepper-content step="2">
-    <v-card class="past-scores">
+    <v-card class="step-card">
       <v-container class="container-override">
         <v-card-title>
           Focus of Analysis

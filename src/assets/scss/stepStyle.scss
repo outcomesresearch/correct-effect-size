@@ -3,7 +3,13 @@
 #app .card-container {
   display: flex;
   flex-flow: wrap;
-  grid-gap: 20px;
+  > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+#app .v_card__text {
+  padding-bottom: 0px !important;
 }
 
 #app .v-stepper__content {

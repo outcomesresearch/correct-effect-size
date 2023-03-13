@@ -1,6 +1,6 @@
 <template>
   <v-stepper-content step="0">
-    <v-card class="past-scores">
+    <v-card class="step-card">
       <v-container class="container-override">
         <v-card-title class="text-h5">
           Selecting the Correct Effect Size Measurement

@@ -1,6 +1,6 @@
 <template>
   <v-stepper-content step="4">
-    <v-card class="past-scores">
+    <v-card class="step-card">
       <v-container class="container-override" v-if="getFurtherChoice">
         <v-card-title class="text-h5">
           Appropriate Effect Size Measurements
