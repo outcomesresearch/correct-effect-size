@@ -14,57 +14,46 @@ import {
 
 let pearsonCorrelationCoefficientR = {
   displayName: 'Pearson Correlation Coefficient r',
-  description: 'description of pearson correlation coefficient r',
 };
 
 let spearmansRho = {
   displayName: 'Spearman’s rho (non-parametric)',
-  description: 'description of Spearman’s rho (non-parametric)',
 };
 
 let coefficientOfDeterminationR2 = {
-  displayName: 'Coefficient of determination R^2',
-  description: 'description of Coefficient of determination R^2',
+  displayName: 'Coefficient of determination R<sup>2</sup>',
 };
 
 let meanDifference = {
   displayName: 'Mean difference',
-  description: 'description of Mean Difference',
 };
 
 let medianDifference = {
   displayName: 'Median difference (non parametric)',
-  description: 'description of median difference (non-parametric)',
 };
 
 let cohensD = {
   displayName: "Cohen's d",
-  description: "description for Cohen's D",
 };
 
 let glassDelta = {
-  displayName: "Glass's delta",
-  description: "description of for Glass's Delta",
+  displayName: "Glass's Δ",
 };
 
 let hedgesG = {
-  displayName: "Hedge's g",
-  description: "description for Hedge's G",
+  displayName: "Hedges' g",
 };
 
 let rNonParametric = {
   displayName: 'r (non parametric)',
-  description: 'description for non parametric R',
 };
 
 let eta2 = {
-  displayName: 'Eta squared',
-  description: 'description for eta squared',
+  displayName: 'Eta squared (η<sup>2</sup>)',
 };
 
 let omega2 = {
-  displayName: 'Omega squared',
-  description: 'description for omega squared',
+  displayName: 'Omega squared (ω<sup>2</sup>)',
 };
 
 let betaCoefficientStandardizedOrUnstandardized = {
@@ -74,13 +63,11 @@ let betaCoefficientStandardizedOrUnstandardized = {
 };
 
 let r2 = {
-  displayName: 'R^2',
-  description: 'description for R^2',
+  displayName: 'R<sup>2</sup>',
 };
 
 let adjustedR2 = {
-  displayName: 'Adjusted R^2',
-  description: 'description for adjusted R^2',
+  displayName: 'Adjusted R<sup>2</sup>',
 };
 
 let effectSizeMeasuresGroup2 = [
@@ -98,7 +85,7 @@ export default {
   name: 'continuous',
   displayName: 'Continuous',
   description:
-    'Continuous outcomes are often measured at both baseline and followup time points. Results of continuous data can be reported as means, mean differences, or differences in change score from baseline, and measures of precision are reported as standard deviation (SD), standard error (SE), or confidence intervals.',
+    'A continuous outcome measure is a type of outcome measure used in clinical studies to quantify changes in a continuous variable such as blood pressure, weight, or height.  It is typically analyzed using statistical methods such a mean, median, or regression analysis.',
   focusOfAnalysis: [
     {
       ...CORRELATION_WITH_CONTINUOUS_MEASURE,

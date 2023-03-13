@@ -6,8 +6,8 @@
           Appropriate Effect Size Measurements
         </v-card-title>
         <v-card-subtitle class="grey--text">
-          Based on the inputs you've given, these are the appropriate effect
-          size measurements to consider for your investigation.
+          Based on the inputs you've given, consider the following as effect
+          size measurements when reporting the results of your investigation.
         </v-card-subtitle>
         <div v-for="header in validEffectSizeMeasures" :key="header.header">
           <v-toolbar

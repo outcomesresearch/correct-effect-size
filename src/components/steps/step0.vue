@@ -8,27 +8,29 @@
         <v-card-text>
           <div>
             <p>
+              Effect size is a critical measurement used in clinical studies to
+              evaluate the impact of an intervention on the outcome of interest.
+              It quantifies the magnitude of the treatment effect, allowing
+              researchers to determine whether the intervention is clinically
+              significant or not. Choosing the correct effect size measurement
+              is crucial as it directly impacts the power of the study, which in
+              turn affects the study's ability to detect a true treatment
+              effect.
+            </p>
+            <p>
+              There are several effect size measurements available, each with
+              its own strengths and weaknesses. Selecting the appropriate effect
+              size measurement requires careful consideration of the study
+              design, the research question, and the data being collected. The
+              choice of effect size can have a significant impact on the study's
+              interpretation, and incorrect selection can lead to underpowered
+              studies or erroneous conclusions.
+            </p>
+
+            <p>
               This wizard-based web tool helps investigators select the
-              appropriate effect size measure for planning and reporting the
+              appropriate effect size measurement for planning and reporting the
               results of their research.
-            </p>
-            <p>
-              First, investigators will select the type of Outcome Measure
-              (Continuous, Categorial, and Time to Event)
-            </p>
-            <p>
-              Next, investigators identify the Focus of Analysis (correlation
-              with continuous measure, comparison of 2 groups, or comparison of
-              3 or more groups)
-            </p>
-            <p>
-              Lastly, define whether you are reporting pair-wise differences, an
-              overall effect, an adjusted association with predictor, or overall
-              model.
-            </p>
-            <p>
-              After completing these steps, the app will provide the most
-              accurate Effect Size measurement to use for the given inputs.
             </p>
           </div>
         </v-card-text>

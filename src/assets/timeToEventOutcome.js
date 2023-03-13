@@ -18,17 +18,14 @@ let HR = {
 
 let survivalRateDifference = {
   displayName: 'Survival rate difference',
-  description: 'Survival rate difference Description',
 };
 
 let medianSurvivalTime = {
   displayName: 'Median survival time',
-  description: 'Median survival time Description',
 };
 
 let restrictedMeanSurvivalTime = {
   displayName: 'Restricted mean survival time',
-  description: 'Restricted mean survival time description',
 };
 
 const effectSizeMeasuresGroup2 = [
@@ -44,14 +41,13 @@ const effectSizeMeasuresGroup2 = [
 
 let harrellsCIndex = {
   displayName: "Harrell's C-index",
-  description: " Harrell's C-index description",
 };
 
 export default {
   name: 'timeToEvent',
   displayName: 'Time To Event',
   description:
-    'Time-to-event outcomes take account of whether an event takes place and also the time at which the event occurs, such that both the event and the timing of the event are important',
+    'A time-to-event outcome measure is a type of clinical trial outcome that captures the time it takes for an event to occur, such as disease progression or death.  It is a powerful measure that allows for the analysis of the duration of the event and provides insights into the treatment effect over time.',
   focusOfAnalysis: [
     {
       ...CORRELATION_WITH_CONTINUOUS_MEASURE,

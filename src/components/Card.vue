@@ -35,12 +35,12 @@
                   <v-list-item-title v-text="`Copy text`"></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item v-if="supportSeeExample">
+              <v-list-item
+                v-if="supportSeeExample"
+                @click="$emit('show-example', identifier)"
+              >
                 <v-list-item-content>
-                  <v-list-item-title
-                    v-text="`See example`"
-                    @click="$emit('show-example', identifier)"
-                  ></v-list-item-title>
+                  <v-list-item-title v-text="`See example`"></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list-item-group>

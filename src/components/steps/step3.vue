@@ -3,10 +3,11 @@
     <v-card class="step-card">
       <v-container class="container-override">
         <v-card-title>
-          Further modifiers
+          Further adjustments
         </v-card-title>
         <v-card-subtitle class="grey--text">
-          Select any relevant modifiers
+          Select any further adjustments done during analysis, for example to
+          remove confounding factors or refine overall model assumptions.
         </v-card-subtitle>
         <v-card-text>
           <div class="card-container" v-if="getFocusOfAnalysis">

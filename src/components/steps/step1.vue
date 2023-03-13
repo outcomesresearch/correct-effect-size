@@ -15,7 +15,6 @@
               :title="outcomeType.displayName"
               :description="outcomeType.description"
               :currentlySelected="selected === outcomeType.name"
-              :disabled="outcomeType.name !== 'categorical'"
               @selected="setOutcomeSelection(outcomeType.name)"
             />
           </div>

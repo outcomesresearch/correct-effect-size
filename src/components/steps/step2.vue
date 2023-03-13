@@ -6,7 +6,8 @@
           Focus of Analysis
         </v-card-title>
         <v-card-subtitle class="grey--text">
-          Select the focus of analysis
+          In statistical analysis, the focus of analysis depends on the
+          research question being asked and the type of data being collected.
         </v-card-subtitle>
         <v-card-text>
           <div class="card-container" v-if="getOutcomeMeasure">
