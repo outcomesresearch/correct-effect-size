@@ -17,7 +17,7 @@ export const pointBSerial = {
   displayName: 'Point Bi-serial correlation',
   name: 'point_bi_serial_correlation',
   description:
-    'Point biserial correlation coefficient quantifies the strength of association between a continuous and a  dichotomous variable.',
+    'Point biserial correlation is used to assess the degree to which the continuous variable differs between the two groups defined by the binary variable.',
 };
 
 export const OR = {
@@ -30,15 +30,14 @@ export const OR = {
 export const RR = {
   displayName: 'Risk Ratio',
   name: 'risk_ratio',
-  description:
-    '<p>Risk Ratio (RR) is a measure of the strength of association between 2 categorical variables calculated as the ratio of the probability of the outcome occurring in one group (exposed group) compared to the probability of the outcome occurring in the other (not exposed) group(s).</p><p>RR = 1 indicates that the probability of the outcome is the same in the 2 groups being compared, and there is no association between the 2 variables.</p><p>RR > 1, the probability or risk for the outcome is higher in the exposed group.</p><p>RR < 1, the probability or risk for the outcome is lower in the exposed group.</p>',
+  description: `<p>The Risk Ratio (also known as Relative Risk) is a measure of the strength of association between 2 categorical variables calculated as the ratio of the probability of the outcome occurring in one group (exposed group) compared to the probability of the outcome occurring in the other (not exposed) group(s).</p><p>RR = 1 indicates that the probability of the outcome is the same in the 2 groups being compared, and there is no association between the 2 variables.</p><p>RR > 1 indicates that the probability or risk for the outcome is higher in the exposed group.</p><p>RR < 1 indicates that the probability or risk for the outcome is lower in the exposed group.</p>`,
 };
 
 export const riskDifference = {
   displayName: 'Risk Difference',
   name: 'risk_difference',
   description:
-    'Risk difference is the difference between the risk of an outcome of interest occurring in two groups.',
+    'The magnitude of the difference between the risk of an outcome of interest occurring in two or more groups.',
 };
 
 export const phi = {
@@ -73,14 +72,14 @@ export const cliffsDelta = {
   displayName: "Cliff's Δ",
   name: 'cliffs_delta',
   description:
-    '<p>Cliff’s delta (Δ) is a measure of effect size that quantifies the amount of difference in the distribution of the values of an ordinal variable, between two groups of observations.</p><p>Cliff’s delta range is -1 to 1, with zero indicating no difference and 1 indicating that values in the first group are larger than values in the second group.</p>',
+    '<p>Cliff’s delta (Δ) is a measure of effect size that quantifies the amount of difference in the distribution of the values of an ordinal variable, between two groups of observations.</p><p>Cliff’s Δ range is -1 to 1, with zero indicating no difference and 1 indicating that values in the first group are larger than values in the second group.</p>',
 };
 
 export const kendallsTau = {
-  displayName: "Kendall's 𝝩",
+  displayName: "Kendall's 𝑡",
   name: 'kendalls_tau',
   description:
-    '<p>Kendall’s tau (𝝩) rank correlation coefficient is a measure of the strength of association between ordinal variables.</p><p>Kendall’s tau ranges from 0 to 1, with 0 indicating no association and 1 is a perfect association between the two variables.</p>',
+    '<p>Kendall’s (𝑡) is a measure of the strength of association between ordinal variables.</p><p>Kendall’s 𝑡 ranges from 0 to 1, with 0 indicating no association and 1 is a perfect association between the two variables.</p>',
 };
 
 const effectSizeMeasuresGroup3 = [
@@ -95,31 +94,31 @@ const effectSizeMeasuresGroup3 = [
 ];
 
 export const pseudoRSquared = {
-  displayName: 'Pseudo R Squared',
+  displayName: 'Pseudo <i>R<sup>2</sup></i>',
   name: 'pseudo_r_squared',
   description:
-    '<p>Pseudo R-squared statistics are measures of model fit when the dependent variable is categorical. As a measure of effect size, the pseudo R-squared quantifies the proportion of variance that is explained by the variables in the model as compared to a model with no variables in it.</p><p>Pseudo R-squared should not be reported alone and are of value when comparing performance of different models.</p>',
+    '<p>Pseudo <i>R<sup>2</sup></i> statistics are measures of model fit when the dependent variable is categorical. As a measure of effect size, the Pseudo <i>R<sup>2</sup></i> statistics quantify the proportion of variance that is explained by the variables in the model as compared to a model with no variables in it.</p><p>Pseudo <i>R<sup>2</sup></i> statistics should not be reported alone.  They are of value when comparing performance of different models.</p>',
 };
 
 export const cIndex = {
-  displayName: 'C-Index',
+  displayName: 'C-Statistic',
   name: 'c_index',
   description:
-    '<p>The c-index is a measure of the discriminative power of a prediction model. C-statistic is equivalent to AUC in ROC analysis.</p><p>If subjects with different outcomes are paired, c-index is the proportion of pairs where the subjects with the larger predicted probability are the subjects that experience the outcome.</p><p>C-index ranges from 0.5 to 1, with 0.5 shown no better discrimination than chance alone, and 1 indicating perfect discriminative power of the model.</p>',
+    '<p>The c-statistic is a measure of the discriminative power of a prediction model. C-statistic is equivalent to AUC in ROC analysis.</p><p>C-statistic ranges from 0.5 to 1, with 0.5 shown no better discrimination than chance alone, and 1 indicating perfect discriminative power of the model.</p>',
 };
 
 export const percentCorrectlyClassified = {
   displayName: 'Percent correctly classified',
   name: 'percent_correctly_classified',
   description:
-    '<p>The percent correctly classified is a measure of model fit that quantifies what percentage of the cases in the sample data are correctly classified by the prediction model.</p><p>Percent correctly classified should be reported together with correctly classified for each of the categories of the dependent variable.</p>',
+    '<p>The percent correctly classified quantifies what percentage of the cases in the sample data are correctly classified by the prediction model.</p><p>Percent correctly classified should be reported together with correctly classified for each of the categories of the dependent variable.</p>',
 };
 
 export default {
   name: 'categorical',
   displayName: 'Categorical',
   description:
-    'Categorical level variables are qualitative variables that are organized in groups (e.g., gender, TNM stage).',
+    'A categorical variable takes on a limited number of discrete values or categories. Categorical variables are often used to represent qualitative or nominal data such as sex, race, disease severity, and treatment group.',
   focusOfAnalysis: [
     {
       ...CORRELATION_WITH_CONTINUOUS_MEASURE,
@@ -165,7 +164,7 @@ export default {
           appropriateEffectSizeMeasures: [
             {
               header: 'general',
-              items: [OR],
+              items: [OR, RR],
             },
           ],
         },
