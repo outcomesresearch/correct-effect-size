@@ -12,8 +12,7 @@ import {
 } from './furtherChoicesConstants';
 
 let HR = {
-  displayName: 'HR',
-  description: 'HR Description',
+  displayName: 'Hazard Ratio',
 };
 
 let survivalRateDifference = {
