@@ -21,7 +21,12 @@ jobs:
       - name: Configure Github with Personal Access Token
         run: |
           git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
-
+     
+      - name: Use Node.js 17
+        uses: actions/setup-node@v4
+        with:
+          node-version: 17.x
+          cache: 'npm'
 
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
