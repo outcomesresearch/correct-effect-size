@@ -1,0 +1,18 @@
+#root,
+body,
+html,
+.mantine-AppShell-root {
+  height: 100% !important;
+}
+
+/* Prevent text overflow in List.Item components */
+.mantine-List-item {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.mantine-List-item .mantine-Text-root {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: calc(100% - 100px);
+}
