@@ -1,61 +1,42 @@
 {
   "name": "correct-effect-size",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.0.0",
+  "homepage": "https://outcomesresearch.github.io/correct-effect-size",
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "c3": "^0.7.20",
-    "core-js": "^3.6.5",
-    "d3": "^7.6.1",
-    "d3-time-format": "^4.1.0",
-    "lorem-ipsum": "^2.0.8",
-    "shared-code": "git+https://github.com/outcomesresearch/shared-code.git",
-    "vue": "^2.6.11",
-    "vuetify": "^2.6.4",
-    "vuex": "^3.6.2"
+    "@mantine/core": "^7.13.4",
+    "@mantine/hooks": "^7.13.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^7.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "5.0",
-    "@vue/cli-plugin-eslint": "5.0",
-    "@vue/cli-service": "5.0",
-    "babel-eslint": "^10.1.0",
-    "deepmerge": "^4.2.2",
-    "eslint": "7.0",
-    "eslint-plugin-vue": "7.0",
-    "sass": "^1.32.13",
-    "sass-loader": "^12.6.0",
-    "vue-cli-plugin-vuetify": "~2.4.8",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "prettier": {
-    "trailingComma": "all",
-    "tabWidth": 2,
-    "semi": true,
-    "singleQuote": true
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {
-      "no-unused-vars": "off"
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "@eslint/js": "^9.13.0",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "gh-pages": "^6.2.0",
+    "globals": "^15.11.0",
+    "postcss": "^8.4.47",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
+    "prettier": "^3.6.2",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.11.0",
+    "vite": "^5.4.10"
+  }
 }
