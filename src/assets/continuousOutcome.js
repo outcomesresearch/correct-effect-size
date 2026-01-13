@@ -57,10 +57,18 @@ let omega2 = {
 };
 
 let betaCoefficientStandardizedOrUnstandardized = {
-  displayName: 'Beta coefficient standardized or unstandardized',
-  description:
-    'description for Beta coefficient standardized or unstandardized',
+  displayName: "Beta coefficient standardized or unstandardized",
+  description: `In regression models, the beta coefficient (β) quantifies the expected change in the outcome for a one-unit increase in a predictor, holding other variables constant.
+
+Unstandardized β is expressed in the outcome’s units and is most useful for direct, real-world interpretation (e.g., “+3.2 mmHg per 1 kg”). Its magnitude depends on how variables are scaled.
+
+Standardized β (often β*) rescales variables to standard-deviation units, so it reflects the change (in SDs) in the outcome per 1 SD increase in the predictor. This facilitates comparison of relative importance across predictors within the same model.
+
+Sign indicates direction of association; magnitude reflects strength on the chosen scale. Estimates are conditional on the other predictors in the model and can be affected by multicollinearity and variable scaling/centering.
+
+Model family matters: in linear regression, β is in outcome units; in logistic regression, β is on the log-odds scale and is commonly exponentiated to report an odds ratio (OR = e^β); in Cox regression, e^β is a hazard ratio (HR). Report β with confidence intervals and, where helpful, standardized and unstandardized forms.`,
 };
+
 
 let r2 = {
   displayName: 'R<sup>2</sup>',
